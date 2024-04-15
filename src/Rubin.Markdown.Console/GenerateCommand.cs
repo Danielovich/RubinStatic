@@ -44,7 +44,7 @@ public class GenerateCommand : Command
 
     /// <summary>
     /// Since we are utilizing Ravor layout views and perhaps wish to push a model to that layout, which cannot be done explicitly,
-    /// we have to do some tricks to enable some kind of modelling. Here we are setting up a singletong Layout helper which has 
+    /// we have to do some tricks to enable some kind of modelling. Here we are setting up a singleton Layout helper which has 
     /// other static methods to be used from the Layout view.
     /// </summary>
     /// <param name="posts"></param>
