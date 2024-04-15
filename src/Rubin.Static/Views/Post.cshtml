@@ -1,0 +1,23 @@
+﻿@using System.Web
+@using Microsoft.AspNetCore.Html
+@using Rubin.Static.ViewModels
+@model PostPageViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = Model.Post.Title.PostTitle;
+    var htmlContent = new HtmlString(Model.Post.HtmlContent.Content);
+}
+
+
+<div class="content-container">
+    <div class="main-content">
+
+        <h3 class="post-title">@Model.Post.Title.PostTitle</h3>
+
+        <p class="published">@Model.Post.PublishedDate.ToLongDateString()</p>
+
+        @htmlContent
+
+    </div>
+</div>

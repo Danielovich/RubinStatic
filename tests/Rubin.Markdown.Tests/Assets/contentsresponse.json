@@ -1,0 +1,242 @@
+[
+  {
+    "name": "2016-05-19-super-short-article.md",
+    "path": "_posts/2016-05-19-super-short-article.md",
+    "sha": "4ff082c9cbd2ed5c38318cdc92a04eae6ec8af36",
+    "size": 582,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-19-super-short-article.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-19-super-short-article.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/4ff082c9cbd2ed5c38318cdc92a04eae6ec8af36",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2016-05-19-super-short-article.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-19-super-short-article.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/4ff082c9cbd2ed5c38318cdc92a04eae6ec8af36",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-19-super-short-article.md"
+    }
+  },
+  {
+    "name": "2016-05-20-my-example-post.md",
+    "path": "_posts/2016-05-20-my-example-post.md",
+    "sha": "7c3773edc36fc3fba475d1dd58459c4dfafd2081",
+    "size": 804,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-my-example-post.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-my-example-post.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/7c3773edc36fc3fba475d1dd58459c4dfafd2081",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2016-05-20-my-example-post.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-my-example-post.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/7c3773edc36fc3fba475d1dd58459c4dfafd2081",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-my-example-post.md"
+    }
+  },
+  {
+    "name": "2016-05-20-super-long-article.md",
+    "path": "_posts/2016-05-20-super-long-article.md",
+    "sha": "86af92b480ea31eb72e5860862eafda0f2e90dc7",
+    "size": 2315,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-super-long-article.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-super-long-article.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/86af92b480ea31eb72e5860862eafda0f2e90dc7",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2016-05-20-super-long-article.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-super-long-article.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/86af92b480ea31eb72e5860862eafda0f2e90dc7",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-super-long-article.md"
+    }
+  },
+  {
+    "name": "2016-05-20-this-post-demonstrates-post-content-styles.md",
+    "path": "_posts/2016-05-20-this-post-demonstrates-post-content-styles.md",
+    "sha": "8fd0cefd66bdf531eb716a1d42f19c59b6dc4901",
+    "size": 5370,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-this-post-demonstrates-post-content-styles.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-this-post-demonstrates-post-content-styles.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/8fd0cefd66bdf531eb716a1d42f19c59b6dc4901",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2016-05-20-this-post-demonstrates-post-content-styles.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-this-post-demonstrates-post-content-styles.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/8fd0cefd66bdf531eb716a1d42f19c59b6dc4901",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-this-post-demonstrates-post-content-styles.md"
+    }
+  },
+  {
+    "name": "2016-05-20-welcome-to-jekyll.md",
+    "path": "_posts/2016-05-20-welcome-to-jekyll.md",
+    "sha": "ec23f9ada690b63401d5d6ca6a27169e458f073f",
+    "size": 1134,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-welcome-to-jekyll.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-welcome-to-jekyll.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/ec23f9ada690b63401d5d6ca6a27169e458f073f",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2016-05-20-welcome-to-jekyll.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2016-05-20-welcome-to-jekyll.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/ec23f9ada690b63401d5d6ca6a27169e458f073f",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2016-05-20-welcome-to-jekyll.md"
+    }
+  },
+  {
+    "name": "2021-01-10-Min-levende-fortolkning-af-det-agile-manifest.md",
+    "path": "_posts/2021-01-10-Min-levende-fortolkning-af-det-agile-manifest.md",
+    "sha": "8af92b6832b5e20202b0c383373a5fcceedfaffd",
+    "size": 5227,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-01-10-Min-levende-fortolkning-af-det-agile-manifest.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-01-10-Min-levende-fortolkning-af-det-agile-manifest.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/8af92b6832b5e20202b0c383373a5fcceedfaffd",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-01-10-Min-levende-fortolkning-af-det-agile-manifest.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-01-10-Min-levende-fortolkning-af-det-agile-manifest.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/8af92b6832b5e20202b0c383373a5fcceedfaffd",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-01-10-Min-levende-fortolkning-af-det-agile-manifest.md"
+    }
+  },
+  {
+    "name": "2021-01-21-please-try-to-use-custom-types.md",
+    "path": "_posts/2021-01-21-please-try-to-use-custom-types.md",
+    "sha": "cce01afe6a3bb14432c2608e05c8dbbf24e021ba",
+    "size": 1240,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-01-21-please-try-to-use-custom-types.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-01-21-please-try-to-use-custom-types.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/cce01afe6a3bb14432c2608e05c8dbbf24e021ba",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-01-21-please-try-to-use-custom-types.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-01-21-please-try-to-use-custom-types.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/cce01afe6a3bb14432c2608e05c8dbbf24e021ba",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-01-21-please-try-to-use-custom-types.md"
+    }
+  },
+  {
+    "name": "2021-02-07-a-build-and-mulitple-stage-deploy-pipeline.md",
+    "path": "_posts/2021-02-07-a-build-and-mulitple-stage-deploy-pipeline.md",
+    "sha": "669fde5bfca74b922f968267d08261e27bc07e76",
+    "size": 3548,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-02-07-a-build-and-mulitple-stage-deploy-pipeline.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-02-07-a-build-and-mulitple-stage-deploy-pipeline.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/669fde5bfca74b922f968267d08261e27bc07e76",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-02-07-a-build-and-mulitple-stage-deploy-pipeline.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-02-07-a-build-and-mulitple-stage-deploy-pipeline.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/669fde5bfca74b922f968267d08261e27bc07e76",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-02-07-a-build-and-mulitple-stage-deploy-pipeline.md"
+    }
+  },
+  {
+    "name": "2021-02-07-a-docker-file.md",
+    "path": "_posts/2021-02-07-a-docker-file.md",
+    "sha": "7b93fdf306c07fba7c3791ae6267aee446033386",
+    "size": 1525,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-02-07-a-docker-file.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-02-07-a-docker-file.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/7b93fdf306c07fba7c3791ae6267aee446033386",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-02-07-a-docker-file.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-02-07-a-docker-file.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/7b93fdf306c07fba7c3791ae6267aee446033386",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-02-07-a-docker-file.md"
+    }
+  },
+  {
+    "name": "2021-02-17-docker-push-authentication-required.md",
+    "path": "_posts/2021-02-17-docker-push-authentication-required.md",
+    "sha": "0a8ab4cd73f51be02f46f95893457447ca003ce7",
+    "size": 3995,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-02-17-docker-push-authentication-required.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-02-17-docker-push-authentication-required.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/0a8ab4cd73f51be02f46f95893457447ca003ce7",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-02-17-docker-push-authentication-required.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-02-17-docker-push-authentication-required.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/0a8ab4cd73f51be02f46f95893457447ca003ce7",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-02-17-docker-push-authentication-required.md"
+    }
+  },
+  {
+    "name": "2021-03-11-PowerShell -WARNING-Unable-to-find-module-repositories.md",
+    "path": "_posts/2021-03-11-PowerShell -WARNING-Unable-to-find-module-repositories.md",
+    "sha": "041a0b81788a49ef26ac0ab6e085698d85f8b2ea",
+    "size": 1637,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-11-PowerShell%20-WARNING-Unable-to-find-module-repositories.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-11-PowerShell%20-WARNING-Unable-to-find-module-repositories.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/041a0b81788a49ef26ac0ab6e085698d85f8b2ea",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-03-11-PowerShell%20-WARNING-Unable-to-find-module-repositories.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-11-PowerShell%20-WARNING-Unable-to-find-module-repositories.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/041a0b81788a49ef26ac0ab6e085698d85f8b2ea",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-11-PowerShell%20-WARNING-Unable-to-find-module-repositories.md"
+    }
+  },
+  {
+    "name": "2021-03-11-writing-a-custom-task-for-Azure-DevOps.md",
+    "path": "_posts/2021-03-11-writing-a-custom-task-for-Azure-DevOps.md",
+    "sha": "11f033358c1c24e36990361385a0fa5889818cdb",
+    "size": 5330,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-11-writing-a-custom-task-for-Azure-DevOps.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-11-writing-a-custom-task-for-Azure-DevOps.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/11f033358c1c24e36990361385a0fa5889818cdb",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-03-11-writing-a-custom-task-for-Azure-DevOps.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-11-writing-a-custom-task-for-Azure-DevOps.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/11f033358c1c24e36990361385a0fa5889818cdb",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-11-writing-a-custom-task-for-Azure-DevOps.md"
+    }
+  },
+  {
+    "name": "2021-03-17-creating-a-azr-and-pushing-an-image-to-it.md",
+    "path": "_posts/2021-03-17-creating-a-azr-and-pushing-an-image-to-it.md",
+    "sha": "bee83191c423a532956714fa2d8e395fbdfa44de",
+    "size": 1552,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-17-creating-a-azr-and-pushing-an-image-to-it.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-17-creating-a-azr-and-pushing-an-image-to-it.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/bee83191c423a532956714fa2d8e395fbdfa44de",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-03-17-creating-a-azr-and-pushing-an-image-to-it.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-17-creating-a-azr-and-pushing-an-image-to-it.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/bee83191c423a532956714fa2d8e395fbdfa44de",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-17-creating-a-azr-and-pushing-an-image-to-it.md"
+    }
+  },
+  {
+    "name": "2021-03-17-writing-a-custom-task-leveraging-a-dotnet-program-for-azure-devops.md",
+    "path": "_posts/2021-03-17-writing-a-custom-task-leveraging-a-dotnet-program-for-azure-devops.md",
+    "sha": "b27c5ef4bacd5bc859251570bf2004d5aabe6c66",
+    "size": 4610,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-17-writing-a-custom-task-leveraging-a-dotnet-program-for-azure-devops.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-17-writing-a-custom-task-leveraging-a-dotnet-program-for-azure-devops.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/b27c5ef4bacd5bc859251570bf2004d5aabe6c66",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2021-03-17-writing-a-custom-task-leveraging-a-dotnet-program-for-azure-devops.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2021-03-17-writing-a-custom-task-leveraging-a-dotnet-program-for-azure-devops.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/b27c5ef4bacd5bc859251570bf2004d5aabe6c66",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2021-03-17-writing-a-custom-task-leveraging-a-dotnet-program-for-azure-devops.md"
+    }
+  },
+  {
+    "name": "2023-04-17-finance-client-23-feedback.md",
+    "path": "_posts/2023-04-17-finance-client-23-feedback.md",
+    "sha": "07b9a18928883e9eae45acf2a6186f9bccef0bf9",
+    "size": 7329,
+    "url": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2023-04-17-finance-client-23-feedback.md?ref=master",
+    "html_url": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2023-04-17-finance-client-23-feedback.md",
+    "git_url": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/07b9a18928883e9eae45acf2a6186f9bccef0bf9",
+    "download_url": "https://raw.githubusercontent.com/Danielovich/danielovich.github.io/master/_posts/2023-04-17-finance-client-23-feedback.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts/2023-04-17-finance-client-23-feedback.md?ref=master",
+      "git": "https://api.github.com/repos/Danielovich/danielovich.github.io/git/blobs/07b9a18928883e9eae45acf2a6186f9bccef0bf9",
+      "html": "https://github.com/Danielovich/danielovich.github.io/blob/master/_posts/2023-04-17-finance-client-23-feedback.md"
+    }
+  }
+]

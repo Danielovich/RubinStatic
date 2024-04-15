@@ -1,0 +1,24 @@
+﻿@using System.Web
+@using Rubin.Static
+@using Rubin.Static.ViewModels
+@using Rubin.Static.Extensions
+@model CategoryPageViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = Model.Category.Title;
+}
+
+
+<div class="content-container">
+    <div class="main-content">
+
+        <h3 class="post-title">@Model.Category.Title</h3>
+
+        <div>
+            @foreach (var item in Model.Posts)
+            {
+                <p>@item.PublishedDate.ToLongDateString() - <a href="@item.Slug.ToUri()">@item.Title.PostTitle</a></p>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Zerfro.Markdown.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "generate"
+    }
+  }
+}

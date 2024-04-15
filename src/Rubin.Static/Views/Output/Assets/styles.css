@@ -1,0 +1,100 @@
+﻿/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.menu {
+    width: 50%;
+    margin: 20px auto;
+    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #fff;
+}
+
+.content-container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 40px;
+    padding-top: 10px;
+    background: #fff;
+}
+
+.published {
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+.main-content {
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-title {
+    margin-bottom: 0px;
+    font-size: 2em;
+}
+
+.post-title a {
+    text-decoration:underline;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Code Styling */
+pre {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #d63384;
+}
+
+/* Enhancements */
+.language-cmd {
+    color: #007700;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* Headings and Important Text */
+h1, h2, h3, strong {
+    color: #0056b3;
+}
+
+/* Links and Buttons */
+a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+button {
+    background-color: #0056b3;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #004494;
+    }

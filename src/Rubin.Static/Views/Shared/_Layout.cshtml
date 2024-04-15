@@ -1,0 +1,32 @@
+﻿@using Rubin.Static
+@using Rubin.Static.Infrastructure
+@using Rubin.Static.Extensions
+@{
+    var categories = await LayoutHelper.Instance.GetCategoryPosts();
+}
+<html>
+<head>
+    <title>Blog name - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="Assets/styles.css" />
+</head>
+
+<body>
+    <div class="menu">
+        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">Alle posts</a></span>
+    </div>
+
+    @RenderBody()
+
+    <div class="menu">
+        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">Alle posts</a> | </span>
+        @{
+            foreach (var item in categories)
+            {
+                <span><a href="@item.Key.Slug.ToUri()">@item.Key.Title (@item.Value.Count())</a> | </span>
+            }
+        }
+
+    </div>
+</body>
+
+</html>

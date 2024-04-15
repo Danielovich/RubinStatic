@@ -1,0 +1,27 @@
+﻿@using System.Web
+@using Microsoft.AspNetCore.Html
+@using Rubin.Static
+@using Rubin.Static.ViewModels
+@using Rubin.Static.Extensions
+@model IndexPageViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Frontpage";
+}
+
+@foreach (var post in Model.Posts)
+{
+    var htmlContent = new HtmlString(post.HtmlContent.Content);
+
+    <div class="content-container">
+        <div class="main-content">
+
+            <h3 class="post-title"><a href="@post.Slug.ToUri()">@post.Title.PostTitle</a></h3>
+
+            <p class="published">@post.PublishedDate.ToLongDateString()</p>
+
+            @htmlContent
+        </div>
+    </div>
+}
