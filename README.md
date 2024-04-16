@@ -4,7 +4,7 @@
 
 #### If you know what you're doing!
 
-Open the .sln with VS 20*. Set Rubin.StaticSite.Console as start project, hit F5 and wait until the console is done working its thing. Open up "Rubin.Markdown.Console\bin\Debug\net8.0\Views\Output" and view Index.html in your browser.
+Open the .sln with VS 20*. Set Rubin.StaticSite.Console as start project, hit F5 and wait until the console is done working its thing. Open up "Rubin.StaticSite.Console\bin\Debug\net8.0\Views\Output" and view Index.html in your browser.
 
 Now change the appsettings.json file in the same project, to point to your own github repo with future markdown files acting as blog posts.
 
@@ -45,11 +45,11 @@ You can use the API as a stand-alone API if you wish to utilize it from somewher
 - If you are wondering what the fuzz about the Category-code is all about, consider it helpers for outputting e.g.: CategoryName(PostCount), e.g: "Sailing(19)".
 - You can use this API from at least a console application and there is no dependencies to other internal projects.
 
-#### Rubin.Markdown.Console is where it's all connected. I have tried to make it as slim as possible, and so...
+#### Rubin.StaticSite.Console is where it's all connected. I have tried to make it as slim as possible, and so...
 
-- there is a wrapper around the IGenerateStatic [called PageGenerator](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown.Console/Generators/PageGenerator.cs).
-- you can [control where the static HTML pages should be saved](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown.Console/Generators/FileSaver.cs), default is /Output dir which is stored in the obj/bin at runtim.
+- there is a wrapper around the IGenerateStatic [called PageGenerator](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.StaticSite.Console/Generators/PageGenerator.cs).
+- you can [control where the static HTML pages should be saved](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.StaticSite.Console/Generators/FileSaver.cs), default is /Output dir which is stored in the obj/bin at runtim.
 - the [SetupLayoutHelper is actually placed inside Rubin.Static](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Infrastructure/LayoutHelper.cs) because of its responsibilty to the _Layout view files. Layout views cannot have a strongly typed model so to overcome this I have made a singleton that one can use if one wishes to output [content which should be shared across all Views that use a Layout view](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Views/Shared/_Layout.cshtml). 
-- the [GenerateCommand is a Command](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown.Console/GenerateCommand.cs) in the sense of System.CommandLine. I have nothing against this library but the dependency is quite large, so I will keep  it until I find a more suitable solution. The command acts as the executor of the PageGenator.
-- posts are [converted from a MarkdownPost model to a Post model](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown.Console/Mappers/PostService.cs), and I have tried to keep the sharing of the two models as far away as I found possible.
+- the [GenerateCommand is a Command](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.StaticSite.Console/GenerateCommand.cs) in the sense of System.CommandLine. I have nothing against this library but the dependency is quite large, so I will keep  it until I find a more suitable solution. The command acts as the executor of the PageGenator.
+- posts are [converted from a MarkdownPost model to a Post model](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.StaticSite.Console/Mappers/PostService.cs), and I have tried to keep the sharing of the two models as far away as I found possible.
 - the program is executed with the command "generate".
