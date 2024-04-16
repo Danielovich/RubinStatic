@@ -27,7 +27,9 @@ public class MarkdownPostParserService : IParseMarkdownFilesToMarkdownPosts
         await githubContentsService.LoadContentsAsync();
 
         var contents = await markdownDownloadService.DownloadAsync(
-            githubContentsService.RepositoryContents.Select(d => new Uri(d.DownloadUrl)));
+            githubContentsService.RepositoryContents
+                .Where(d => d.DownloadUrl != null)
+                .Select(d => new Uri(d.DownloadUrl)));
 
         return await ParseAsync(contents);
     }
