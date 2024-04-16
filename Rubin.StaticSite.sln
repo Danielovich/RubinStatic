@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rubin.Markdown.Tests", "tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rubin.Markdown", "src\Rubin.Markdown\Rubin.Markdown.csproj", "{8DEA24A6-F028-40D7-AD14-8585CB178299}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rubin.StaticSite.Console", "src\Rubin.Markdown.Console\Rubin.StaticSite.Console.csproj", "{DE90AAE8-03E2-47A0-B01C-28F8996EE359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rubin.StaticSite.Console", "src\Rubin.StaticSite.Console\Rubin.StaticSite.Console.csproj", "{DE90AAE8-03E2-47A0-B01C-28F8996EE359}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rubin.Static", "src\Rubin.Static\Rubin.Static.csproj", "{49D0DACB-7344-409C-8CDD-2FFE2D3BFC05}"
 EndProject
