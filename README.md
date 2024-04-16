@@ -1,5 +1,7 @@
 ### Rubin Static Site Generator from Github repo and markdown files
 
+![](https://raw.githubusercontent.com/Danielovich/RubinStatic/main/doc/assets/basicdesc.jpg)
+
 #### If you know what you're doing!
 
 Open the .sln with VS 20*. Set Rubin.StaticSite.Console as start project, hit F5 and wait until the console is done working its thing. Open up "Rubin.Markdown.Console\bin\Debug\net8.0\Views\Output" and view Index.html in your browser.
@@ -7,6 +9,8 @@ Open the .sln with VS 20*. Set Rubin.StaticSite.Console as start project, hit F5
 Now change the appsettings.json file in the same project, to point to your own github repo with future markdown files acting as blog posts.
 
 ### I need more info!
+
+First of all [I have written some thoughts](designthoughts.md) about how I got here and why I ended up creating a new small static site generation system. I hardly put my reflective choice of building this in the category of "not invented here", I had an itch, I scratched it.
 
 #### Dependencies:
 
