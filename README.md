@@ -27,7 +27,7 @@ The solution is based on several projects but where only the Rubin.StaticSite.Co
 
 #### The API of Rubin.Markdown is basically where we communicate with  external infrastructure and parses formats:
 
-- downloading markdown files from a repo of your choice, which basically represent [blog posts](https://github.com/Danielovich/markdownposts).
+- downloading markdown files from a repo of your choice, which basically represent [blog posts](https://github.com/Danielovich/markdownposts). They utilize markdown comments for properties.
 - [parsing](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/Parsers/MarkdownPostParser.cs) those markdown files from a string to strongly typed model.
 - you **MUST** [adjust the constants](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/Constants.cs). Specifically the "MarkdownContentsUrl" should be added inside a appsettings.json file from where you use the API (see how the Rubin.StaticSite.Console does it). The Github client for [downloading the markdown files](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/GithubClient/GitHubApiService.cs) will throw if not set.
 
@@ -37,7 +37,7 @@ You can use the API as a stand-alone API if you wish to utilize it from somewher
 #### The API of Rubin.Static gives you the possibility to generate static HTML files by utilizing the Razor syntax. The API...
 
 - has its own Models which makes it independent from models in other projects, e.g: Rubin.Markdown.
-- Views are cshtml files which can implement HTML, Razor and .NET code. Views can be located in Views and Views/Shared.
+- Views are cshtml files which can implement HTML, [Razor](https://www.w3schools.com/asp/razor_syntax.asp) and .NET code. Views can be located in Views and Views/Shared.
 - Rendering a razor view outside a web application is [not exactly a non-trival challange](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Infrastructure/Renderer.cs), there is a internal dependency on a HostingEnvironment and I haven't found a way to discard the ServiceProvider as being used for service location. 
 - The [AddRazorTemplating](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Infrastructure/StartupExtensions.cs) is an extension method which registers these dependencies.
 - The presumable easist approach to understanding how the actual views are generated [is to follow along here](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Services/GenerateStaticService.cs).
