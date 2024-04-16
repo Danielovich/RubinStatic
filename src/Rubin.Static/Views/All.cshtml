@@ -7,16 +7,15 @@
 
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Frontpage";
+    ViewData["Title"] = "Alle posts";
 }
 
-@foreach (var post in Model.Posts)
-{
-    <div class="content-container">
-        <div class="main-content">
+<div class="content-container">
+    <div class="main-content">
+        @foreach (var post in Model.Posts)
+        {
             <h3 class="post-title"><a href="@post.Slug.ToUri()">@post.Title.PostTitle</a></h3>
-
-            <p class="published">@post.PublishedDate.ToLongDateString()</p>
-        </div>
+            <span class="published">@post.PublishedDate.ToLongDateString()</span>
+        }
     </div>
-}
+</div>

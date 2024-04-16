@@ -4,21 +4,23 @@
 @{
     var categories = await LayoutHelper.Instance.GetCategoryPosts();
 }
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Blog name - @ViewData["Title"]</title>
+    <title>Daniel Frost - @ViewData["Title"]</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="Assets/styles.css" />
 </head>
 
 <body>
     <div class="menu">
-        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">Alle posts</a></span>
+        <span class="frontpage-identifier"><a href="index.html">Forside</a> | <a href="all.html">Alle posts</a></span>
     </div>
 
     @RenderBody()
 
     <div class="menu">
-        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">Alle posts</a> | </span>
+        <span class="frontpage-identifier"><a href="index.html">Forside</a> | <a href="all.html">Alle posts</a> | </span>
         @{
             foreach (var item in categories)
             {

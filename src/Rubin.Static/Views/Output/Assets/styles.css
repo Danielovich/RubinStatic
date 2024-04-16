@@ -1,11 +1,16 @@
-﻿/* Base Styles */
+﻿:root {
+    --dark-grey-color: #383434;
+    --light-grey-color: #eff1f5
+}
+
+/* Base Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: #333;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #ffffef;
 }
 
 .menu {
@@ -14,7 +19,7 @@ body {
     padding: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #fff;
+    background: #ccc;
 }
 
 .content-container {
@@ -22,16 +27,16 @@ body {
     margin: 20px auto;
     padding: 40px;
     padding-top: 10px;
-    background: #fff;
+    background: #f9f9ee;
 }
 
 .published {
+    font-size: 0.8em;
     margin: 0px;
     margin-bottom: 30px;
 }
 
-.main-content {
-}
+
 
 img {
     max-width: 100%;
@@ -43,9 +48,9 @@ img {
     font-size: 2em;
 }
 
-.post-title a {
-    text-decoration:underline;
-}
+    .post-title a {
+        text-decoration: underline;
+    }
 
 p {
     margin-bottom: 20px;
@@ -73,12 +78,13 @@ code {
 
 /* Headings and Important Text */
 h1, h2, h3, strong {
-    color: #0056b3;
+    color: #4b637e;
 }
 
 /* Links and Buttons */
 a {
-    color: #0056b3;
+    color: #4b637e;
+    font-size: 1.2em;
     text-decoration: none;
 }
 
@@ -97,4 +103,23 @@ button {
 
     button:hover {
         background-color: #004494;
+    }
+
+blockquote {
+    border-left: 4px solid var(--light-grey-color);
+    border-bottom: 1px solid var(--light-grey-color);
+    padding-left: 16px;
+    margin-left: 0;
+    font-style: italic;
+    color: var(--dark-grey-color);
+}
+
+    blockquote p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        margin-bottom: 7px;
+        unicode-bidi: isolate;
     }
