@@ -8,30 +8,30 @@ public class PageGenerator : IGeneratePages
 {
     private readonly ICategoryPostOrganizer categoryPostOrganizer;
     private readonly IGenerateStatic generateStatic;
-    private ISaveOutput outputSaver;
+    private readonly ISavePage pageSaver;
 
 
     public PageGenerator(
         ICategoryPostOrganizer categoryPostOrganizer,
         IGenerateStatic generateStatic,
-        ISaveOutput outputSaver)
+        ISavePage contentSaver)
     {
         this.categoryPostOrganizer = categoryPostOrganizer ?? throw new ArgumentNullException(nameof(categoryPostOrganizer));
         this.generateStatic = generateStatic ?? throw new ArgumentNullException(nameof(generateStatic));
-        this.outputSaver = outputSaver;
+        this.pageSaver = contentSaver;
     }
 
     public async Task GeneratePostPage(IEnumerable<Post> posts)
     {
         // generate page for each post 
-        await generateStatic.PostPage(posts, outputSaver.SaveOutputAsync);
+        await generateStatic.PostPage(posts, pageSaver.Save);
     }
 
     public async Task GenerateIndexPage(IEnumerable<Post> posts, int showNumberOfPosts = 10)
     {
         // generate page for each post 
         await generateStatic.IndexPage(posts.OrderByPublishDate().Take(showNumberOfPosts), 
-            outputSaver.SaveOutputAsync);
+            pageSaver.Save);
     }
 
     public async Task GenerateCategoryPage(IEnumerable<Post> posts)
@@ -39,14 +39,14 @@ public class PageGenerator : IGeneratePages
         // generate page that outputs posts within a category.
         var categoryPosts = categoryPostOrganizer.GetCategoryPosts(posts);
         await generateStatic.CategoryPage(categoryPosts.OrderByPublishDate(),
-            outputSaver.SaveOutputAsync);
+            pageSaver.Save);
     }
 
     public async Task GenerateAllPage(IEnumerable<Post> posts)
     {
         // generate page that outputs all posts.
         await generateStatic.AllPage(posts.OrderByPublishDate(),
-            outputSaver.SaveOutputAsync);
+            pageSaver.Save);
     }
 
     public async Task GenerateNoCategoryPage(IEnumerable<Post> posts, string uncategorizedTitle)
@@ -56,6 +56,6 @@ public class PageGenerator : IGeneratePages
         await generateStatic.CategoryPage(new Category()
         {
             Title = uncategorizedTitle
-        }, noCategoryPosts.OrderByPublishDate(), outputSaver.SaveOutputAsync);
+        }, noCategoryPosts.OrderByPublishDate(), pageSaver.Save);
     }
 }

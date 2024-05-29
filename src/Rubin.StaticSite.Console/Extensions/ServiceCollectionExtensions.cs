@@ -30,7 +30,7 @@ namespace Rubin.Markdown.Console.Extensions
             services.AddScoped<IConfiguration>(_ => configuration);
             services.AddTransient<IMapToPosts, PostService>();
             services.AddTransient<IGeneratePages, PageGenerator>();
-            services.AddTransient<ISaveOutput, FileSaver>();
+            services.AddTransient<ISavePage, SaveAsFile>();
 
             services.AddMarkdown();
             services.AddRazorTemplating();
