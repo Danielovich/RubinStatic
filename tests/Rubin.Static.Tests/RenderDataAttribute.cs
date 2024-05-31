@@ -1,10 +1,6 @@
-﻿using AutoFixture;
-using AutoFixture.Xunit2;
+﻿namespace Rubin.Static.Tests;
 
-namespace Rubin.Static.Tests
+public class RenderDataAttribute : AutoDataAttribute
 {
-    public class RenderDataAttribute : AutoDataAttribute
-    {
-        public RenderDataAttribute() : base(() => new Fixture().Customize(new RenderCustomization())) { }
-    }
+    public RenderDataAttribute() : base(() => new Fixture().Customize(new RenderCustomization())) { }
 }
