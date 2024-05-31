@@ -1,14 +1,10 @@
-﻿using AutoFixture;
-using Rubin.Static.Models;
-using Rubin.Static.Services;
+﻿namespace Rubin.Static.Tests;
 
-namespace Rubin.Static.Tests;
-
-public class CategoryPostsTests : IClassFixture<PostPredictableCategoriesTestsFixture>
+public class CategoryPostsTests : IClassFixture<PredictablePostCategoriesTestsFixture>
 {
     private readonly Fixture _fixture;
 
-    public CategoryPostsTests(PostPredictableCategoriesTestsFixture fixture)
+    public CategoryPostsTests(PredictablePostCategoriesTestsFixture fixture)
     {
         _fixture = fixture.Fixture;
     }

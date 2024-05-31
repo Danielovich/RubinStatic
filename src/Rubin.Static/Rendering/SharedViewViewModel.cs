@@ -1,27 +1,27 @@
 ﻿using Rubin.Static.Models;
 
-namespace Rubin.Static.Infrastructure;
+namespace Rubin.Static.Rendering;
 
 /// <summary>
-/// A static singleton helper type that is meant for use from the Layout view due to the 
-/// weak enablement of passing a strongly typed model to a Layout view. 
+/// A static singleton helper type that is meant for use from a Shared View (e.g. Layout) due to the 
+/// weak enablement of passing a strongly typed model to a Shared View (e.g. Layout). 
 /// 
-/// Another approach for passing a strongly type to the Layout would have been to add a property
-/// to each ViewModel with the wanted data to be passed to the Layout, and from each View setting a
-/// ViewData data-bag which would then be picked up by the Layout. But as you might have already
+/// Historic considerations: Another approach for passing a strongly type to the Layout would have been to 
+/// add a property to each ViewModel with the wanted data to be passed to the Layout, and from each View 
+/// setting a ViewData data-bag which would then be picked up by the Layout. But as you might have already
 /// understood, it would be less clean and from my developments point of view, a poor choice.
 /// 
-/// So static singleton it is.
+/// So static singleton of a Model it is.
 /// </summary>
-public class LayoutHelper
+public class SharedViewViewModel
 {
-    private static readonly Lazy<LayoutHelper> instance = new Lazy<LayoutHelper>(() => new LayoutHelper());
-    public static LayoutHelper Instance => instance.Value;
+    private static readonly Lazy<SharedViewViewModel> instance = new Lazy<SharedViewViewModel>(() => new SharedViewViewModel());
+    public static SharedViewViewModel Instance => instance.Value;
 
     private IEnumerable<Post> posts = new List<Post>();
     private Dictionary<Category, IEnumerable<Post>> categoryPosts = new Dictionary<Category, IEnumerable<Post>>();
 
-    private LayoutHelper() { }
+    private SharedViewViewModel() { }
 
     public async Task Initialize(IEnumerable<Post> posts)
     {

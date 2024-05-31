@@ -1,61 +1,61 @@
-﻿using Rubin.Static.Extensions;
-using Rubin.Static.Models;
-using Rubin.Static.Services;
-
-namespace Rubin.Markdown.Console.Generators;
+﻿namespace Rubin.Markdown.Console.Generators;
 
 public class PageGenerator : IGeneratePages
 {
     private readonly ICategoryPostOrganizer categoryPostOrganizer;
-    private readonly IGenerateStatic generateStatic;
-    private ISaveOutput outputSaver;
+    private readonly IRenderPages generateStatic;
+    private readonly ISavePage pageSaver;
 
 
     public PageGenerator(
         ICategoryPostOrganizer categoryPostOrganizer,
-        IGenerateStatic generateStatic,
-        ISaveOutput outputSaver)
+        IRenderPages generateStatic,
+        ISavePage contentSaver)
     {
         this.categoryPostOrganizer = categoryPostOrganizer ?? throw new ArgumentNullException(nameof(categoryPostOrganizer));
         this.generateStatic = generateStatic ?? throw new ArgumentNullException(nameof(generateStatic));
-        this.outputSaver = outputSaver;
+        this.pageSaver = contentSaver;
     }
 
     public async Task GeneratePostPage(IEnumerable<Post> posts)
     {
         // generate page for each post 
-        await generateStatic.PostPage(posts, outputSaver.SaveOutputAsync);
+        var postPage = await generateStatic.PostPage(posts);
+        await pageSaver.Save(postPage);
     }
 
     public async Task GenerateIndexPage(IEnumerable<Post> posts, int showNumberOfPosts = 10)
     {
         // generate page for each post 
-        await generateStatic.IndexPage(posts.OrderByPublishDate().Take(showNumberOfPosts), 
-            outputSaver.SaveOutputAsync);
+        var index = await generateStatic.IndexPage(posts.OrderByPublishDate().Take(showNumberOfPosts));
+        await pageSaver.Save(index);
     }
 
     public async Task GenerateCategoryPage(IEnumerable<Post> posts)
     {
         // generate page that outputs posts within a category.
         var categoryPosts = categoryPostOrganizer.GetCategoryPosts(posts);
-        await generateStatic.CategoryPage(categoryPosts.OrderByPublishDate(),
-            outputSaver.SaveOutputAsync);
+        var categoryPage = await generateStatic.CategoryPage(categoryPosts.OrderByPublishDate());
+        await pageSaver.Save(categoryPage);
+
     }
 
     public async Task GenerateAllPage(IEnumerable<Post> posts)
     {
         // generate page that outputs all posts.
-        await generateStatic.AllPage(posts.OrderByPublishDate(),
-            outputSaver.SaveOutputAsync);
+        var allPage = await generateStatic.AllPage(posts.OrderByPublishDate());
+        await pageSaver.Save(allPage);
     }
 
     public async Task GenerateNoCategoryPage(IEnumerable<Post> posts, string uncategorizedTitle)
     {
         // generate page that outputs posts which has no category.
         var noCategoryPosts = categoryPostOrganizer.GetNoCategoryPosts(posts);
-        await generateStatic.CategoryPage(new Category()
+        var categoryPage = await generateStatic.CategoryPage(new Category()
         {
             Title = uncategorizedTitle
-        }, noCategoryPosts.OrderByPublishDate(), outputSaver.SaveOutputAsync);
+        }, noCategoryPosts.OrderByPublishDate());
+
+        await pageSaver.Save(categoryPage);
     }
 }

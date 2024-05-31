@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Routing;
 
-namespace Rubin.Static.Infrastructure;
+namespace Rubin.Static.Rendering;
 
 public class Renderer : IRenderer
 {
@@ -18,13 +18,17 @@ public class Renderer : IRenderer
     {
         _serviceProvider = serviceProvider;
     }
-
-    public async Task<string> RenderViewToStringAsync<TModel>(string viewPath, TModel model)
+    
+    /// <summary>
+    /// <seealso cref="IRenderer"/>
+    /// </summary>
+    public async Task<string> RenderViewToPageAsync<TModel>(string viewPath, TModel model)
     {
         var httpContext = new DefaultHttpContext { RequestServices = _serviceProvider };
         var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
 
-        using (var sw = new StringWriter())
+        // will be the carrier for the rendered view which is essentially an HTML page
+        using (var htmlWriter = new StringWriter())
         {
             var viewEngine = _serviceProvider.GetRequiredService<IRazorViewEngine>();
             var viewResult = viewEngine.FindView(actionContext, viewPath, false);
@@ -44,11 +48,11 @@ public class Renderer : IRenderer
                 viewResult.View,
                 viewDictionary,
                 new TempDataDictionary(actionContext.HttpContext, _serviceProvider.GetRequiredService<ITempDataProvider>()),
-                sw,
+                htmlWriter,
                 new HtmlHelperOptions());
 
             await viewResult.View.RenderAsync(viewContext);
-            return sw.ToString();
+            return htmlWriter.ToString();
         }
     }
 }

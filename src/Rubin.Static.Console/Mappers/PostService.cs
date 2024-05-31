@@ -1,10 +1,4 @@
-﻿using Rubin.Markdown.Models;
-using Rubin.Markdown.Parsers;
-using Rubin.Static;
-using Rubin.Static.Models;
-using Rubin.Static.Services;
-
-namespace Rubin.Markdown.Console.Mappers;
+﻿namespace Rubin.Markdown.Console.Mappers;
 
 public class PostService : IMapToPosts
 {

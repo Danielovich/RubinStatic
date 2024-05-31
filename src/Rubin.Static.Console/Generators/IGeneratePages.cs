@@ -1,6 +1,4 @@
-﻿using Rubin.Static.Models;
-
-namespace Rubin.Markdown.Console.Generators;
+﻿namespace Rubin.Markdown.Console.Generators;
 
 public interface IGeneratePages
 {

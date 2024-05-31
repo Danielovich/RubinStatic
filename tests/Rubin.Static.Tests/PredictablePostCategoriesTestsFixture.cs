@@ -1,13 +1,14 @@
-﻿using AutoFixture;
-using Rubin.Static.Models;
+﻿namespace Rubin.Static.Tests;
 
-namespace Rubin.Static.Tests;
-
-public class PostPredictableCategoriesTestsFixture
+/// <summary>
+/// This type is for making testing Post Categories easier.
+/// Categories can be "set" on a Post and here we set a random number of categories 
+/// </summary>
+public class PredictablePostCategoriesTestsFixture
 {
     public Fixture Fixture { get; private set; }
 
-    public PostPredictableCategoriesTestsFixture()
+    public PredictablePostCategoriesTestsFixture()
     {
         Fixture = new Fixture();
 

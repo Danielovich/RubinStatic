@@ -1,6 +1,10 @@
-﻿using Rubin.Static.Models;
+﻿namespace Rubin.Static.Tests;
 
-namespace Rubin.Static.Tests;
+/// <summary>
+/// A helping type for testing post categories
+/// var categories = PostCategoriesCustomization.RandomPickedCategories("Technology,Health,Science,Education,Entertainment");
+/// might return "Entertainment,Technology,Education"
+/// </summary>
 
 internal static class PostCategoriesCustomization
 {
