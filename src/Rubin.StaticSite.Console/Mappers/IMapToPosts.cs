@@ -1,7 +1,4 @@
-﻿using Rubin.Markdown.Models;
-using Rubin.Static.Models;
-
-namespace Rubin.Markdown.Console.Mappers;
+﻿namespace Rubin.Markdown.Console.Mappers;
 
 public interface IMapToPosts
 {
