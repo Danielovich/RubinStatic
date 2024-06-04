@@ -5,7 +5,7 @@ public class MarkdownReader
 
     public MarkdownReader()
     {
-        var markdownFile = Path.Combine(Environment.CurrentDirectory, "assets", "markdown.md");
+        var markdownFile = Path.Combine(Environment.CurrentDirectory, "Assets", "markdown.md");
 
         this.Markdown = File.ReadAllText(markdownFile);
     }

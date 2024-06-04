@@ -8,7 +8,7 @@ public class MarkdownBlogpostParserTestFixture
 
     public MarkdownBlogpostParserTestFixture()
     {
-        var markdownFile = Path.Combine(Environment.CurrentDirectory, "assets", "post.md");
+        var markdownFile = Path.Combine(Environment.CurrentDirectory, "Assets", "post.md");
 
         this.MarkdownFile.Contents = File.ReadAllText(markdownFile);
     }

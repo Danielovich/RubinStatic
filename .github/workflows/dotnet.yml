@@ -1,35 +1,22 @@
-name: Build and Test
+name: CI
 
 on:
   push:
     branches:
-      - main
+    - main
   pull_request:
     branches:
       - main
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Setup .NET
+    - name: Setup dotnet 8.0
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '8.0.x'
-
-    - name: Restore dependencies
-      run: dotnet restore Rubin.Static.sln
-
-    - name: Build
-      run: dotnet build Rubin.Static.sln --no-restore --configuration Release
-
-    - name: Tests
-      run: dotnet test tests/Rubin.Markdown.Tests/Rubin.Markdown.Tests.csproj --no-build --verbosity=normal
-
-    - name: Test Rubin.Static.Tests
-      run: dotnet test tests/Rubin.Static.Tests/Rubin.Static.Tests.csproj --no-build --verbosity=normal
+        dotnet-version: '8.0.100'
+    - name: Build and Test
+      run: ./build.ps1
+      shell: pwsh
