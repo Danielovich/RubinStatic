@@ -9,6 +9,6 @@ namespace Rubin.Markdown.Models
             Comment = comment;
         }
 
-        public string Comment { get; set; } = default!;
+        public string Comment { get; set; } = string.Empty;
     }
 }

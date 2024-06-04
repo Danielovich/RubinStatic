@@ -1,5 +1,8 @@
 namespace Rubin.Markdown.Models;
 
+/// <summary>
+/// Under heavy influence from https://github.com/madskristensen/Miniblog.Core/blob/master/src/Models/Post.cs
+/// </summary>
 public class MarkdownPost
 {
     public virtual IList<string> Categories { get; } = new List<string>();
