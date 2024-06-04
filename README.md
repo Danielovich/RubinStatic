@@ -1,3 +1,5 @@
+![CI](https://github.com/Danielovich/RubinStatic/actions/workflows/dotnet.yml/badge.svg)
+
 ### Rubin Static HTML Generator from Github repo and markdown files
 
 ![](https://raw.githubusercontent.com/Danielovich/RubinStatic/main/doc/assets/basicdesc.jpg)
