@@ -4,9 +4,7 @@ using Rubin.Static.ViewModels;
 namespace Rubin.Static.Rendering;
 
 /// <summary>
-/// This type implements pretty straight forward methods for rendering and saving 
-/// static content. Each method points to a View and might also take a Model. 
-/// Each of these generator methods can also save its content.
+/// Each method points to a View and might also take a Model.
 /// </summary>
 public class PageRendering : IRenderPages
 {

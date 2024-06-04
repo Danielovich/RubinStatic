@@ -14,3 +14,4 @@ global using Rubin.Static.Services;
 global using Rubin.Markdown.Models;
 global using Rubin.Markdown.Parsers;
 global using Rubin.Static;
+global using Rubin.Static.Console;
