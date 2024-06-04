@@ -28,8 +28,8 @@ jobs:
     - name: Build
       run: dotnet build Rubin.Static.sln --no-restore --configuration Release
 
-    - name: Test Rubin.Markdown.Tests
-      run: dotnet test tests/Rubin.Markdown.Tests/Rubin.Markdown.Tests.csproj --no-build --verbosity normal
+    - name: Tests
+      run: dotnet test tests/Rubin.Markdown.Tests/Rubin.Markdown.Tests.csproj --no-build --verbosity=normal
 
     - name: Test Rubin.Static.Tests
-      run: dotnet test tests/Rubin.Static.Tests/Rubin.Static.Tests.csproj --no-build --verbosity normal
+      run: dotnet test tests/Rubin.Static.Tests/Rubin.Static.Tests.csproj --no-build --verbosity=normal
