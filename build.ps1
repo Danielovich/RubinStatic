@@ -17,4 +17,6 @@ exec { & dotnet clean -c Release }
 
 exec { & dotnet build -c Release }
 
+tree /F
+
 exec { & dotnet test -c Release --no-build -l trx --verbosity=normal }
