@@ -10,7 +10,11 @@ namespace Rubin.Markdown.Extensions
                 Constants.Config.DateTimeFormat1, 
                 Constants.Config.DateTimeFormat2, 
                 Constants.Config.DateTimeFormat3, 
-                Constants.Config.DateTimeFormat4 };
+                Constants.Config.DateTimeFormat4,
+                Constants.Config.DateTimeFormat5,
+                Constants.Config.DateTimeFormat6,
+                Constants.Config.DateTimeFormat7,
+                Constants.Config.DateTimeFormat8};
 
             if (DateTime.TryParseExact(
                 markdownProperty.Value,
