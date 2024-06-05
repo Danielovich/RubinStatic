@@ -9,8 +9,9 @@ public class GitHubApiService : IGithubRepositoryContentsService
 
     public GitHubApiService(HttpClient httpClient, IConfiguration config)
     {
-        this.httpClient = httpClient;
-        configuration = config;
+        this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+        this.configuration = config ?? throw new ArgumentNullException(nameof(config));
+
         RepositoryContents = new List<GetRepositoryContentApiResponse>();
 
         ArgumentException.ThrowIfNullOrWhiteSpace(configuration[Constants.Config.MarkdownContentsUrl]);

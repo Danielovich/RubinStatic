@@ -4,10 +4,10 @@ using Rubin.Markdown.Models;
 
 namespace Rubin.Markdown.Tests;
 
-public class MarkdownBlogpostsServiceTests
+public class MarkdownPostParserServiceTests
 {
     [Theory, AutoMoqData]
-    public async Task Parse_Markdown_To_Blogpost_ReturnsPosts(
+    public async Task Parse_Markdown_To_MarkdownPost_ReturnsPosts(
         [Frozen] IGithubRepositoryContentsService githubContentsService,
         [Frozen] IDownloadMarkdownFile onlineContentService)
     {

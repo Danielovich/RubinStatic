@@ -21,7 +21,7 @@ public class MarkdownPostParser
     }
 
     /// <summary>
-    /// Parses comments as blog post properties
+    /// Parses comments as markdown post properties
     /// </summary>
     public async Task ParseCommentsAsPropertiesAsync()
     {
