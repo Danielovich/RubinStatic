@@ -1,6 +1,12 @@
 ![CI](https://github.com/Danielovich/RubinStatic/actions/workflows/dotnet.yml/badge.svg)
 
-### Rubin Static HTML Generator from Github repo and markdown files
+### What is this piece of software ?
+
+- It will generate a full static blog site from HTML inside Razor views (which you fully control).
+- Blog posts are hosted in a different repo than this generator. 
+- Each blog post is based on markdown utilizing markdown comments as blog post properties (slug, categories, publish date etc.).
+- There is no publishing or content persistence. It saves HTML to your local disk and is not controlled or administered in any capacity. 
+- You have to publish your blog to your hosting provider of choice.
 
 ![](https://raw.githubusercontent.com/Danielovich/RubinStatic/main/doc/assets/basicdesc.jpg)
 
@@ -15,10 +21,9 @@
 - Post (Rubin.Static) - strongly typed MarkdownPost
 - RenderedPage (Rubin.Static) - Strongly typed HTML representation of a Post
 
-
 #### If you know what you're doing!
 
-Open the .sln with VS 20*. Set Rubin.Static.Console as start project, hit F5 and wait until the console is done working its thing. Open up "Rubin.Static.Console\bin\Debug\net8.0\Views\Output" and view Index.html in your browser.
+Open the .sln with VS 2022. Set Rubin.Static.Console as start project, hit F5 and wait until the console has finished. Open the directory "Rubin.Static.Console\bin\Debug\net8.0\Views\Output" and view Index.html in your browser (or any other of the generated HTML file).
 
 Now you can try and change the appsettings.json file in the same project, and point to your own github repo where you host your own markdown files acting as blog posts.
 
@@ -35,16 +40,16 @@ It is said that very few developers actually reads code they are depended on, so
 
 The solution is based on several projects. Only the Rubin.Static.Console has multiple dependencies to inter-solution projects. Rubin.Static.Console relies on both Rubin.Static and Rubin.Markdown.
 
-#### The API of Rubin.Markdown is basically where we communicate with external "infrastructure" and parses formats:
+#### The API of Rubin.Markdown is basically where we communicate with the markdown git repository and parses that markdown:
 
 - downloading markdown files from a repo of your choice, which basically represent [blog posts](https://github.com/Danielovich/markdownposts). They utilize markdown comments as properties.
 - [parsing](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/Parsers/MarkdownPostParser.cs) those markdown files from a string to strongly typed model.
-- you **MUST** [adjust the constants](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/Constants.cs). Specifically the "MarkdownContentsUrl" should be added inside a appsettings.json file from where you use the API (see how the Rubin.Static.Console does it). The Github client for [downloading the markdown files](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/GithubClient/GitHubApiService.cs) will throw an exception if not set.
+- you **MUST** [change the constants](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/Constants.cs). Specifically the "MarkdownContentsUrl" should be added inside a appsettings.json file from where you use the API (see how the Rubin.Static.Console does it). The Github client for [downloading the markdown files](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/GithubClient/GitHubApiService.cs) will throw an exception if not set.
 
 You can use the API as a "stand-alone" API if you wish to utilize it from somewhere else than this solution. There is an [extenstion method you can use for this](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Markdown/Extensions/StartupExtensions.cs).
 
 
-#### The API of Rubin.Static gives you the possibility to generate static HTML files by utilizing the Razor syntax. 
+#### The API of Rubin.Static gives you the possibility to generate HTML files by utilizing the Razor syntax. 
 
 - The API has its own Models which makes it independent from models in other projects, e.g: Rubin.Markdown.
 - Views are cshtml files which can hold HTML, [Razor](https://www.w3schools.com/asp/razor_syntax.asp) and .NET code. Views can be located in Views and Views/Shared.
@@ -54,7 +59,7 @@ You can use the API as a "stand-alone" API if you wish to utilize it from somewh
 - Markdig dependency is [only used here](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Services/TransformMarkdownToHTMLService.cs).
 - You can use this API from at least a console application and there is no dependencies to other internal projects.
 
-#### Rubin.Static.Console is where it's all connected. I have tried to make it as slim as possible, and so...
+#### Rubin.Static.Console is where the pieces are connected and a blog/site is generated. I have tried to make it as slim as possible, and so...
 
 - there is a type implementing the IGeneratePages [called PageGenerator](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/PageGenerator.cs).
 - you can [control where the static HTML pages should be saved](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/ISavePage.cs), default is [/Output](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/SaveAsFile.cs) dir which is stored in the obj/bin at runtime.
