@@ -108,7 +108,7 @@ public class MarkdownPostParserTests
     [Fact]
     public async Task Parse_Comments_To_A_Date_2()
     {
-        var date = "29/05/2023 18:59";
+        var date = "05/29/2023 18:59";
         var comments = $"[//]: # \"pubDate: {date}\"\n";
         var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
