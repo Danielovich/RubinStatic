@@ -4,17 +4,12 @@ using Rubin.Markdown.GithubClient;
 using Rubin.Markdown.MarkdownDownload;
 using Rubin.Markdown.Models;
 
-public interface IParseMarkdownFilesToMarkdownPosts
-{
-    Task<List<MarkdownPost>> ParseAsync();
-    Task<List<MarkdownPost>> ParseAsync(List<MardownFile> markdownFiles);
-}
-
 public class MarkdownPostParserService : IParseMarkdownFilesToMarkdownPosts
 {
     private readonly IGithubRepositoryContentsService githubContentsService;
     private readonly IDownloadMarkdownFile markdownDownloadService;
-    public MarkdownPostParserService(IGithubRepositoryContentsService githubContentsService,
+    public MarkdownPostParserService(
+        IGithubRepositoryContentsService githubContentsService,
         IDownloadMarkdownFile markdownDownloadService)
     {
         this.markdownDownloadService = markdownDownloadService;
@@ -36,18 +31,18 @@ public class MarkdownPostParserService : IParseMarkdownFilesToMarkdownPosts
 
     public async Task<List<MarkdownPost>> ParseAsync(List<MardownFile> markdownFiles)
     {
-        var intermediatePosts = new List<MarkdownPost>();
+        var posts = new List<MarkdownPost>();
 
-        foreach (var item in markdownFiles)
+        foreach (var file in markdownFiles)
         {
-            var parser = new MarkdownPostParser(item);
+            var parser = new MarkdownPostParser(file);
 
             await parser.ParseCommentsAsPropertiesAsync();
             await parser.ParseContent();
 
-            intermediatePosts.Add(parser.MarkdownPost);
+            posts.Add(parser.MarkdownPost);
         }
 
-        return intermediatePosts;
+        return posts;
     }
 }

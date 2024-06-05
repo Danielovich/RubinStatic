@@ -7,18 +7,17 @@ public class GitHubContentsServiceTests : IDisposable
     {
         HttpClient.Dispose();
     }
-    private Mock<HttpMessageHandler> HttpMessageHandlerMock { get; set; } = default!;
-    private HttpClient HttpClient { get; set; } = default!;
-    private IConfiguration Configuration { get; set; } = default!;
+    private Mock<HttpMessageHandler> HttpMessageHandlerMock { get; set; }
+    private HttpClient HttpClient { get; set; }
+    private IConfiguration Configuration { get; set; }
 
     public GitHubContentsServiceTests()
     {
         HttpMessageHandlerMock = new Mock<HttpMessageHandler>();
         HttpClient = new HttpClient(HttpMessageHandlerMock.Object);
 
-        ///Be aware here that this must correspond to the settings inside the <see cref="Constants" /> file.
         var inMemorySettings = new Dictionary<string, string?> {
-            {"markdownContentsUrl", "https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts?ref=master"},
+            {"markdownContentsUrl", "https://any.uri.will.do"},
         };
 
         Configuration = new ConfigurationBuilder()
