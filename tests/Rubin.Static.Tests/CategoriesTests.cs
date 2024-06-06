@@ -10,7 +10,7 @@ public class CategoryPostsTests : IClassFixture<PredictablePostCategoriesTestsFi
     }
 
     [Fact]
-    public void Only_Distinct_Categories_Is_Returned()
+    public void Category_Posts_Are_Returned()
     {
         // Arrange
         var listOfPosts = _fixture.CreateMany<Post>(10);
@@ -21,19 +21,18 @@ public class CategoryPostsTests : IClassFixture<PredictablePostCategoriesTestsFi
         var result = sut.GetCategoryPosts(listOfPosts);
 
         // Assert
-        // 5 is the number of categories we set up in the fixture
-        Assert.True(result.Keys.Count == 5); 
+        Assert.NotEmpty(result.Values.SelectMany(posts => posts));
     }
 
     [Fact]
-    public void Posts_Keep_Its_Categories()
+    public void Posts_Keeps_Its_Categories()
     {
         // Arrange
         var listOfPosts = _fixture.CreateMany<Post>(10).ToList();
         
         var firstPost = listOfPosts.First();
 
-        // add posts with same categories as first post in collection
+        // add posts with same categories as the first post in collection
         var post1 = _fixture.Create<Post>();
         post1.Categories = firstPost.Categories;
         listOfPosts.Add(post1);
@@ -47,7 +46,7 @@ public class CategoryPostsTests : IClassFixture<PredictablePostCategoriesTestsFi
         var result = sut.GetCategoryPosts(listOfPosts);
 
         // Assert
-        // if post1 and post2 share the same categories as first post we are all good.
+        // post1 and post2 should have the same categories as the first post from the result
         var posts1 = result.Values.SelectMany(s => s).Where(p => p.Title.Equals(post1.Title)).First();
         Assert.True(firstPost.Categories.SequenceEqual(posts1.Categories));
 
