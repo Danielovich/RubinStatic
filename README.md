@@ -9,8 +9,8 @@
 - Blog posts (essentially markdown) are not hosted within this generator.
 - Blog posts are downloaded at runtime, from a github repo.
 - Blog posts use markdown comments as blog post properties (slug, categories, publish date etc.).
-- Generated HTML cannot be published anywhere from the generator.
-- HTML is saved the execution path of the executable (your disk).
+- Generated HTML is not published anywhere outside of the generator. 
+- Generated HTML is saved at the execution path of the executable (on your disk).
 
 #### Markdown files acting as blog posts
 
