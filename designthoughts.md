@@ -1,17 +1,17 @@
 Before writing this piece of software I had made a small effort to help out writing a routine
 for creating blog comment links, for the blog owned by the Danish Software Quality author and programmer [Mark Seemann](https://blog.ploeh.dk). 
 
-When looking at the repo that serves Marks blog, specifically the notion of how ["Posts" are kept and persisted](https://github.com/ploeh/ploeh.github.com/tree/master/_posts), I thought about how clever it really is to host ones own blog content and at the same time base it of a  Git repository.
+When looking at the repo that serves Marks blog, specifically the notion of how ["Posts" are kept and persisted](https://github.com/ploeh/ploeh.github.com/tree/master/_posts), I started thinking about how "clever" it would be host ones own blog content in a git repo, decentralized from whatever piece of software rendering those markdown files. One of Mark's clever ideas is that he utilizes Git as a comment mechanism, where one pull requests a comment to a post. 
 
 > You get a lot "for free" by using Git for this. A draft mechanism (you can choose to not commit and push the posts you keep locally), an option for collaborative authoring by utilizing pull-requests and a central place to store your content which is not a database per se. 
 
-Another great feature of Marks blog is that it is - as far I know - based on the static site generator Jekyll. 
+Another thing about Mark's blog is that it is - as far I know - based on the static site generator Jekyll.
 
-I have had growing bothering issue with paying for a runtime on a cloud provider just because I needed a place to gather my writings. And hosting a static site is, by far, a cost reduction. There are other clear optimizations for serving static content - such as - it's fast! 
+At the same time I have had a growing bothering issue with paying for a runtime on a cloud provider just because I needed a place to gather my writings. And hosting a static site is, by far, a cost reduction. There are other clear optimizations for serving static content - such as - it's fast! 
 
-As I was starting to blog again, I had for some period of time used the [mataroa.blog](https://mataroa.blog) which I have been super happy with. It's a no bullshit offering; clean, simple, cheap and I might have kept using it if I did not find the templating options too poor to my taste. 
+As I was starting to blog again, I had for some time used the [mataroa.blog](https://mataroa.blog) which I have been super happy with. It's a no bullshit offering; clean, simple, cheap and I might have kept using it if I did not find the templating options too poor to my taste. 
 
-I tried for a few days to configure the [Mataroa code](https://github.com/mataroa-blog/mataroa) on my dev-machine and wanted to implement a different option for configuring templates, but I found the dependencies too noisy on my machine, and I had a hard time (I am really not that clever) figuring out how to approach the templating implementation because I found it baked in quite solid. And again, I absolutely did not want to host a semi-demanding piece of software for my blog, especially on a stack I am not absolutely proficient in. 
+I tried for a few days to configure the [Mataroa code](https://github.com/mataroa-blog/mataroa) on my dev-machine and wanted to implement a different option for configuring templates, but I found the dependencies too noisy on my machine, and I had a hard time (I am really not that smart) figuring out how to approach the templating implementation because I found it baked in quite solid. And again, I absolutely did not want to host a semi-demanding piece of software for my blog, especially on a stack I am not absolutely proficient in. 
 
 So I reluctantly thought about it for a few weeks, trying to push away, but as programming much often does - it pulls you in. So eventually I had to give in from my internal pressure of challenging myself with writing a static site generator.
 
