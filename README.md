@@ -16,7 +16,15 @@
 
 [I have written some thoughts](designthoughts.md) about how I got here and why I ended up creating a new small static site generator. Thinking about really, it I hardly puts my reflective choice of building this in the category of "not invented here". I had an itch. I scratched it. 
 
-### Now you know why this exists.
+### Now you know why this exists
+
+#### A Github repo for yout markdown files
+
+```
+{
+  "markdownContentsUrl": "https://api.github.com/repos/Danielovich/markdownposts/contents/?ref=main"
+}
+```
 
 #### A Markdown file which portrays a blog post looks like this:
 
@@ -40,13 +48,6 @@ And I found it easy enough...
 
 (it could also look like this: https://github.com/Danielovich/markdownposts/blob/main/et-liv-i-programmering.md)
 
-
-#### Some terminology
-
-- MarkdownFile (Rubin.Markdown) - earliest artifact portraying a blog post
-- MarkdownPost (Rubin.Markdown) - loosely typed MarkdownFile
-- Post (Rubin.Static) - strongly typed MarkdownPost
-- RenderedPage (Rubin.Static) - Strongly typed HTML representation of a Post
  
 #### Build, Run and View result from a command line. (only tested this on windows)
 
@@ -155,6 +156,13 @@ You can adjust this to your liking of course.
 - Xunit
 
 ### Technical Documentation
+
+#### Some terminology
+
+- MarkdownFile (Rubin.Markdown) - earliest artifact portraying a blog post
+- MarkdownPost (Rubin.Markdown) - loosely typed MarkdownFile
+- Post (Rubin.Static) - strongly typed MarkdownPost
+- RenderedPage (Rubin.Static) - Strongly typed HTML representation of a Post
 
 It is said that very few developers actually reads code they are depended on, so based on that sentiment I will share some pointers with a brief technical documentation.
 
