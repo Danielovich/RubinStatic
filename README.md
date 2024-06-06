@@ -2,30 +2,150 @@
 
 ### What is this piece of software ?
 
-- It will generate a full static blog site from HTML inside Razor views (which you fully control).
-- Blog posts are hosted in a different repo than this generator. 
-- Each blog post is based on markdown utilizing markdown comments as blog post properties (slug, categories, publish date etc.).
-- There is no publishing or content persistence. It saves HTML to your local disk and is not controlled or administered in any capacity. 
-- You have to publish your blog to your hosting provider of choice.
-
-![](https://raw.githubusercontent.com/Danielovich/RubinStatic/main/doc/assets/basicdesc.jpg)
+- This is thought of as a local-first static blog/site generator. 
+- It will generate a full static blog/site in HTML.
+- It will generate HTML based on Markdown.
+- HTML is rendered from the use of Razor views.
+- Blog posts (essentially markdown) are not hosted within this generator.
+- Blog posts are downloaded at runtime, from a github repo.
+- Blog posts use markdown comments as blog post properties (slug, categories, publish date etc.).
+- Generated HTML cannot be published anywhere from the generator.
+- HTML is saved the execution path of the executable (your disk).
 
 #### Markdown files acting as blog posts
 
-[I have written some thoughts](designthoughts.md) about how I got here and why I ended up creating a new small static site generator. Thinking about it I hardly put my reflective choice of building this in the category of "not invented here". I had an itch. I scratched it.
+[I have written some thoughts](designthoughts.md) about how I got here and why I ended up creating a new small static site generator. Thinking about really, it I hardly puts my reflective choice of building this in the category of "not invented here". I had an itch. I scratched it. 
+
+### Now you know why this exists.
+
+#### A Markdown file which portrays a blog post looks like this:
+
+```
+[//]: # "title: When I invented the wheel"
+[//]: # "slug: i-circled-around"
+[//]: # "pubDate: 14/12/1995 12:01"
+[//]: # "lastModified: 14/05/2023 13:07"
+[//]: # "excerpt: This is some really interesting stuff."
+[//]: # "categories: engineering, wheels"
+[//]: # "isPublished: true"
+
+### Let me enlighten you!
+
+This is some content I wrote and it's in a markdown file
+
+And I found it easy enough...
+
+> It will be transformed into HTML by a dependency and will look good if you drizzle a few rules of css on it.
+```
+
+(it could also look like this: https://github.com/Danielovich/markdownposts/blob/main/et-liv-i-programmering.md)
+
 
 #### Some terminology
 
-- MarkdownFile (Rubin.Markdown) - earliest artifact to portray a blog post
+- MarkdownFile (Rubin.Markdown) - earliest artifact portraying a blog post
 - MarkdownPost (Rubin.Markdown) - loosely typed MarkdownFile
 - Post (Rubin.Static) - strongly typed MarkdownPost
 - RenderedPage (Rubin.Static) - Strongly typed HTML representation of a Post
+ 
+#### Build, Run and View result from a command line. (only tested this on windows)
 
-#### If you know what you're doing!
+```
+git clone https://github.com/Danielovich/RubinStatic.git
 
-Open the .sln with VS 2022. Set Rubin.Static.Console as start project, hit F5 and wait until the console has finished. Open the directory "Rubin.Static.Console\bin\Debug\net8.0\Views\Output" and view Index.html in your browser (or any other of the generated HTML file).
+cd RubinStatic
 
-Now you can try and change the appsettings.json file in the same project, and point to your own github repo where you host your own markdown files acting as blog posts.
+.\build.ps1
+
+cd RubinStatic\src\Rubin.Static.Console\bin\Release\net8.0
+
+.\Rubin.Static.Console.exe generate
+
+cd RubinStatic\src\Rubin.Static.Console\bin\Release\net8.0\Views\Output
+
+.\index.html
+```
+
+#### index.html, all.html etc.
+
+The generated HTML can be structured how you wish it to be, really. The HTML is rendered by executing a Razor view, by default each view has a model. Index.cshtml looks like this.
+
+```
+@using System.Web
+@using Microsoft.AspNetCore.Html
+@using Rubin.Static
+@using Rubin.Static.ViewModels
+@using Rubin.Static.Extensions
+@model IndexPageViewModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Frontpage";
+}
+
+@foreach (var post in Model.Posts)
+{
+    var htmlContent = new HtmlString(post.HtmlContent.Content);
+
+    <div class="content-container">
+        <div class="main-content">
+
+            <h3 class="post-title"><a href="@post.Slug.ToUri()">@post.Title.PostTitle</a></h3>
+
+            <p class="published">@post.PublishedDate.ToLongDateString()</p>
+
+            @htmlContent
+        </div>
+    </div>
+}
+```
+
+And the Layout (a shared view), which "wraps" around the given view looks like this.
+
+```
+@using Rubin.Static
+@using Rubin.Static.Infrastructure
+@using Rubin.Static.Extensions
+@using Rubin.Static.Rendering
+@{
+    var categories = await SharedViewViewModel.Instance.GetCategoryPosts();
+}
+<html>
+<head>
+    <title>Blog name - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="Assets/styles.css" />
+</head>
+
+<body>
+    <div class="menu">
+        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">All posts</a></span>
+    </div>
+
+    @RenderBody()
+
+    <div class="menu">
+        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">All posts</a> | </span>
+        @{
+            foreach (var item in categories)
+            {
+                <span><a href="@item.Key.Slug.ToUri()">@item.Key.Title (@item.Value.Count())</a> | </span>
+            }
+        }
+
+    </div>
+</body>
+
+</html>
+```
+
+There are a few views by default.
+
+- index.cshtml will render a number of posts .
+- all.cshtml will render all posts.
+- post.cshtml will be rendered as the slug of a post, hence it will be a post.
+- category.cshtml will be rendered as a category value/name and render links to posts within each category. 
+
+You can adjust this to your liking of course.
 
 #### Dependencies:
 
@@ -34,9 +154,9 @@ Now you can try and change the appsettings.json file in the same project, and po
 - AutoFixture
 - Xunit
 
-It is said that very few developers actually reads code they are depended on, so based on that sentiment I will share some pointers with a brief technical documentation.
-
 ### Technical Documentation
+
+It is said that very few developers actually reads code they are depended on, so based on that sentiment I will share some pointers with a brief technical documentation.
 
 The solution is based on several projects. Only the Rubin.Static.Console has multiple dependencies to inter-solution projects. Rubin.Static.Console relies on both Rubin.Static and Rubin.Markdown.
 
@@ -62,7 +182,7 @@ You can use the API as a "stand-alone" API if you wish to utilize it from somewh
 #### Rubin.Static.Console is where the pieces are connected and a blog/site is generated. I have tried to make it as slim as possible, and so...
 
 - there is a type implementing the IGeneratePages [called PageGenerator](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/PageGenerator.cs).
-- you can [control where the static HTML pages should be saved](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/ISavePage.cs), default is [/Output](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/SaveAsFile.cs) dir which is stored in the obj/bin at runtime.
+- you can [control where the static HTML pages should be saved](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/ISavePage.cs), default is [Output](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Generators/SaveAsFile.cs) dir which is located in bin\Release\net8.0\Views\Output at runtime.
 - the [SharedViewViewModel](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Rendering/SharedViewViewModel.cs) exists because of its responsibilty to the Shared View (_Layout) files. Layout views cannot have a strongly typed model so to overcome this it utilizes the SharedViewViewModel as a singleton that one can use if one wishes to output [content which should be shared across all Views that use a Layout view](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static/Views/Shared/_Layout.cshtml). 
 - the [GenerateCommand is a Command](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/GenerateCommand.cs) in the sense of System.CommandLine. I have nothing against this library but the dependency is quite large, so I will keep it until I find a more suitable solution. The command is calling into a IGeneratePages type.
 - posts are [converted from a MarkdownPost model to a Post model](https://github.com/Danielovich/RubinStatic/blob/main/src/Rubin.Static.Console/Mappers/PostService.cs), and I have tried to keep the sharing of the two models as far away as I found possible.
