@@ -10,7 +10,7 @@ public class CategoryPostsService : ICategoryPostOrganizer
     }
 
     /// <summary>
-    /// Returns a dictionary with distinct Category as key and Posts in given Category as Values
+    /// Returns a dictionary with Category as key and Posts in given Category as Values
     /// If a Post has several Categories it is present in all those Categories
     /// </summary>
     /// <param name="categories"></param>

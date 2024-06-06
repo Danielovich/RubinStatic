@@ -19,10 +19,10 @@ internal static class PostCategoriesCustomization
 
         shuffled.OrderBy(x => rnd.Next()).ToList();
 
-        // Decide on a random count of elements to take (at least 1, up to the list's count)
+        // random count of elements
         int count = rnd.Next(1, shuffled.Count + 1);
 
-        // Take the first 'count' elements from the shuffled list
+        // Take 'count' elements 
         return shuffled.Take(count).ToList();
     }
 }
