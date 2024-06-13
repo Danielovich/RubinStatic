@@ -1,11 +1,4 @@
-﻿using System.CommandLine;
-using System.Globalization;
-using Rubin.Markdown.Console.Generators;
-using Rubin.Markdown.Console.Mappers;
-using Rubin.Static.Infrastructure;
-using Rubin.Static.Models;
-
-namespace Rubin.Markdown.Console;
+﻿namespace Rubin.Markdown.Console;
 
 /// <summary>
 /// Using System.CommandLine for this command line tool
@@ -48,9 +41,9 @@ public class GenerateCommand : Command
     /// other static methods to be used from the Layout view.
     /// </summary>
     /// <param name="posts"></param>
-    /// <seealso cref="LayoutHelper"/>
+    /// <seealso cref="SharedViewViewModel"/>
     private async Task SetupLayoutHelper(IEnumerable<Post> posts)
     {
-        await LayoutHelper.Instance.Initialize(posts);
+        await SharedViewViewModel.Instance.Initialize(posts);
     }
 }

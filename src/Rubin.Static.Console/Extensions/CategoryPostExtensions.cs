@@ -1,6 +1,4 @@
-﻿using Rubin.Static.Models;
-
-namespace Rubin.Static.Extensions;
+﻿namespace Rubin.Static.Console;
 public static class CategoryPostExtensions
 {
     public static Dictionary<Category, IEnumerable<Post>> OrderByPublishDate(this Dictionary<Category, IEnumerable<Post>> posts)

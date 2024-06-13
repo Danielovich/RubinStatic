@@ -1,0 +1,17 @@
+﻿global using System.CommandLine;
+global using System.Globalization;
+global using Rubin.Markdown.Console.Generators;
+global using Rubin.Markdown.Console.Mappers;
+global using Rubin.Static.Models;
+global using Rubin.Static.Rendering;
+global using Microsoft.Extensions.DependencyInjection;
+global using Rubin.Markdown.Console.Extensions;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Logging;
+global using Rubin.Markdown.Extensions;
+global using Rubin.Static.Infrastructure;
+global using Rubin.Static.Services;
+global using Rubin.Markdown.Models;
+global using Rubin.Markdown.Parsers;
+global using Rubin.Static;
+global using Rubin.Static.Console;

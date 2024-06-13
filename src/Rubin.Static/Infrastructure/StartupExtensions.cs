@@ -6,6 +6,7 @@ using Microsoft.Extensions.FileProviders;
 using System.Diagnostics;
 using System.Reflection;
 using Rubin.Static.Services;
+using Rubin.Static.Rendering;
 
 namespace Rubin.Static.Infrastructure
 {
@@ -15,7 +16,9 @@ namespace Rubin.Static.Infrastructure
         {
             services.AddTransient<ICategoryPostOrganizer, CategoryPostsService>();
             services.AddTransient<ITransformMarkdownToHTML, TransformMarkdownToHTMLService>();
-            services.AddTransient<IGenerateStatic, GenerateStaticService>();
+            services.AddTransient<IRenderPages, PageRendering>();
+
+            services.AddRazorTemplating();
 
             return services;
         }

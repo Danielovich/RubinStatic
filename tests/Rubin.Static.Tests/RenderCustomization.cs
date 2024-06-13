@@ -1,20 +1,14 @@
-﻿using AutoFixture;
-using Microsoft.Extensions.DependencyInjection;
-using Rubin.Static.Infrastructure;
-using Rubin.Static.Services;
+﻿namespace Rubin.Static.Tests;
 
-namespace Rubin.Static.Tests
+public class RenderCustomization : ICustomization
 {
-    public class RenderCustomization : ICustomization
+    public void Customize(IFixture fixture)
     {
-        public void Customize(IFixture fixture)
-        {
-            ServiceCollection sc = new ServiceCollection();
-            sc.AddRazorTemplating();
+        ServiceCollection sc = new ServiceCollection();
+        sc.AddStatic();
 
-            var renderer = new Renderer(sc.BuildServiceProvider());
+        var renderer = new Renderer(sc.BuildServiceProvider());
 
-            fixture.Register(() => new GenerateStaticService(renderer));
-        }
+        fixture.Register(() => new PageRendering(renderer));
     }
 }

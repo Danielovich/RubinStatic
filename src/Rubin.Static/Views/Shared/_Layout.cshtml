@@ -1,8 +1,9 @@
 ﻿@using Rubin.Static
 @using Rubin.Static.Infrastructure
 @using Rubin.Static.Extensions
+@using Rubin.Static.Rendering
 @{
-    var categories = await LayoutHelper.Instance.GetCategoryPosts();
+    var categories = await SharedViewViewModel.Instance.GetCategoryPosts();
 }
 <!DOCTYPE html>
 <html>
