@@ -1,4 +1,4 @@
-﻿namespace Rubin.Markdown.Console.Generators;
+﻿namespace Rubin.Static.Console.Generators;
 
 public class SaveAsFile : ISaveRenderedPage
 {

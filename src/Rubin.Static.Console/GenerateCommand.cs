@@ -1,4 +1,6 @@
-﻿namespace Rubin.Markdown.Console;
+﻿using Rubin.Static.Console.Mappers;
+
+namespace Rubin.Static.Console;
 
 /// <summary>
 /// Using System.CommandLine for this command line tool

@@ -1,11 +1,11 @@
-﻿namespace Rubin.Markdown.Console.Mappers;
+﻿namespace Rubin.Static.Console.Mappers;
 
-public class PostService : IMapToPosts
+public class PostMapper : IMapToPosts
 {
     private readonly ITransformMarkdownToHTML transformMarkdownToHTML;
     private readonly IParseMarkdownFilesToMarkdownPosts parseMarkdownFilesToMarkdownPosts;
 
-    public PostService(
+    public PostMapper(
         ITransformMarkdownToHTML transformMarkdownToHTML,
         IParseMarkdownFilesToMarkdownPosts parseMarkdownFilesToMarkdownPosts)
     {

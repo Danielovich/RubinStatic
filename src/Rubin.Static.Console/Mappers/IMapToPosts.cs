@@ -1,4 +1,4 @@
-﻿namespace Rubin.Markdown.Console.Mappers;
+﻿namespace Rubin.Static.Console.Mappers;
 
 public interface IMapToPosts
 {
