@@ -20,7 +20,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IConfiguration>(_ => configuration);
         services.AddTransient<IMapToPosts, PostService>();
         services.AddTransient<IGeneratePages, PageGenerator>();
-        services.AddTransient<ISavePage, SaveAsFile>();
+        services.AddTransient<ISaveRenderedPage, SaveAsFile>();
 
         services.AddMarkdown();
         services.AddStatic();

@@ -4,13 +4,13 @@ public class PageGenerator : IGeneratePages
 {
     private readonly ICategoryPostOrganizer categoryPostOrganizer;
     private readonly IRenderPages generateStatic;
-    private readonly ISavePage pageSaver;
+    private readonly ISaveRenderedPage pageSaver;
 
 
     public PageGenerator(
         ICategoryPostOrganizer categoryPostOrganizer,
         IRenderPages generateStatic,
-        ISavePage contentSaver)
+        ISaveRenderedPage contentSaver)
     {
         this.categoryPostOrganizer = categoryPostOrganizer ?? throw new ArgumentNullException(nameof(categoryPostOrganizer));
         this.generateStatic = generateStatic ?? throw new ArgumentNullException(nameof(generateStatic));
