@@ -4,9 +4,8 @@ internal class FakeGithubApi
 {
     public HttpResponseMessage ContentsEndpoint()
     {
-        // Return response from https://api.github.com/repos/Danielovich/danielovich.github.io/contents/_posts?ref=master
-        var jsonResponseTestPath = Path.Combine(Environment.CurrentDirectory, "Assets", "contentsresponse.json");
-        var jsonResponse = File.ReadAllText(jsonResponseTestPath);
+        var githubContentsResponseJsonPath = Path.Combine(Environment.CurrentDirectory, "Assets", "contentsresponse.json");
+        var jsonResponse = File.ReadAllText(githubContentsResponseJsonPath);
 
         var response = new HttpResponseMessage(HttpStatusCode.OK)
         {

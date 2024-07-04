@@ -1,19 +1,19 @@
 namespace Rubin.Markdown.Tests.Parsers;
-public class MarkdownContentToBlogPostContentTests : IClassFixture<MarkdownBlogpostParserTestFixture>
+public class MarkdownContentToBlogPostContentTests : IClassFixture<MarkdownFileFixture>
 {
-    private readonly MarkdownBlogpostParserTestFixture markdownBlogpostParserTestFixture;
+    private readonly MarkdownFileFixture markdownFileFixture;
 
-    public MarkdownContentToBlogPostContentTests(MarkdownBlogpostParserTestFixture markdownBlogpostParserTestFixture)
+    public MarkdownContentToBlogPostContentTests(MarkdownFileFixture markdownFileFixture)
     {
-        this.markdownBlogpostParserTestFixture = markdownBlogpostParserTestFixture;
+        this.markdownFileFixture = markdownFileFixture;
     }
 
     [Fact]
-    public async Task Parse_As_Content()
+    public async Task Parses_Markdown_Content_To_MarkdownPost_Content()
     {
-        var markDownBlogpostParser = new MarkdownPostParser(markdownBlogpostParserTestFixture.MarkdownFile);
-        await markDownBlogpostParser.ParseContent();
+        var markdownPostParser = new MarkdownPostParser(markdownFileFixture.MarkdownFile);
+        await markdownPostParser.ParseContent();
 
-        Assert.True(markDownBlogpostParser.MarkdownPost.Content != string.Empty);
+        Assert.True(markdownPostParser.MarkdownPost.Content != string.Empty);
     }
 }
