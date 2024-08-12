@@ -1,5 +1,13 @@
 ﻿namespace Rubin.Static.Console.Mappers;
 
+
+/*
+You might wonder, could this not be residing in the Rubin.Static namespace ?
+
+No.
+
+Because there are no project-references between either of those projects. And there shouldn't be.
+*/
 public class PostMapper : IMapToPosts
 {
     private readonly ITransformMarkdownToHTML transformMarkdownToHTML;
