@@ -11,17 +11,24 @@
     <title>Daniel Frost - @ViewData["Title"]</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="Assets/styles.css" />
+
+    <!--Syntax Highlighting Start-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.js"></script>
+
+    <script>hljs.highlightAll();</script>
+    <!--Syntax Highlighting End-->
 </head>
 
 <body>
     <div class="menu">
-        <span class="frontpage-identifier"><a href="index.html">Forside</a> | <a href="all.html">Alle posts</a> | <a target="_blank" href="https://github.com/Danielovich/RubinStatic">Powered by</a></span>
+        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">All posts</a> | <a target="_blank" href="https://github.com/Danielovich/RubinStatic">powered by</a></span>
     </div>
 
     @RenderBody()
 
     <div class="menu">
-        <span class="frontpage-identifier"><a href="index.html">Forside</a> | <a href="all.html">Alle posts</a> | </span>
+        <span class="frontpage-identifier"><a href="index.html">Frontpage</a> | <a href="all.html">All posts</a> | </span>
         @{
             foreach (var item in categories)
             {
