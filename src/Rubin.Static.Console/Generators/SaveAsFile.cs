@@ -1,6 +1,6 @@
-﻿namespace Rubin.Markdown.Console.Generators;
+﻿namespace Rubin.Static.Console.Generators;
 
-public class SaveAsFile : ISavePage
+public class SaveAsFile : ISaveRenderedPage
 {
     public async Task<string> Save(RenderedPage rendering)
     {

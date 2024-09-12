@@ -1,4 +1,7 @@
-﻿namespace Rubin.Markdown.Console.Extensions;
+﻿using Rubin.Static.Console.Generators;
+using Rubin.Static.Console.Mappers;
+
+namespace Rubin.Static.Console.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -18,9 +21,9 @@ public static class ServiceCollectionExtensions
             .Build();
 
         services.AddScoped<IConfiguration>(_ => configuration);
-        services.AddTransient<IMapToPosts, PostService>();
+        services.AddTransient<IMapToPosts, PostMapper>();
         services.AddTransient<IGeneratePages, PageGenerator>();
-        services.AddTransient<ISavePage, SaveAsFile>();
+        services.AddTransient<ISaveRenderedPage, SaveAsFile>();
 
         services.AddMarkdown();
         services.AddStatic();

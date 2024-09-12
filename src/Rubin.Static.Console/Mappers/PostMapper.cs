@@ -1,11 +1,19 @@
-﻿namespace Rubin.Markdown.Console.Mappers;
+﻿namespace Rubin.Static.Console.Mappers;
 
-public class PostService : IMapToPosts
+
+/*
+You might wonder, could this not be residing in the Rubin.Static namespace ?
+
+No.
+
+Because there are no project-references between either of those projects. And there shouldn't be.
+*/
+public class PostMapper : IMapToPosts
 {
     private readonly ITransformMarkdownToHTML transformMarkdownToHTML;
     private readonly IParseMarkdownFilesToMarkdownPosts parseMarkdownFilesToMarkdownPosts;
 
-    public PostService(
+    public PostMapper(
         ITransformMarkdownToHTML transformMarkdownToHTML,
         IParseMarkdownFilesToMarkdownPosts parseMarkdownFilesToMarkdownPosts)
     {

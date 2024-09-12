@@ -1,16 +1,16 @@
-﻿namespace Rubin.Markdown.Console.Generators;
+﻿namespace Rubin.Static.Console.Generators;
 
 public class PageGenerator : IGeneratePages
 {
     private readonly ICategoryPostOrganizer categoryPostOrganizer;
     private readonly IRenderPages generateStatic;
-    private readonly ISavePage pageSaver;
+    private readonly ISaveRenderedPage pageSaver;
 
 
     public PageGenerator(
         ICategoryPostOrganizer categoryPostOrganizer,
         IRenderPages generateStatic,
-        ISavePage contentSaver)
+        ISaveRenderedPage contentSaver)
     {
         this.categoryPostOrganizer = categoryPostOrganizer ?? throw new ArgumentNullException(nameof(categoryPostOrganizer));
         this.generateStatic = generateStatic ?? throw new ArgumentNullException(nameof(generateStatic));
@@ -33,7 +33,7 @@ public class PageGenerator : IGeneratePages
 
     public async Task GenerateCategoryPage(IEnumerable<Post> posts)
     {
-        // generate page that outputs posts within a category.
+        // generate category page and belonging posts within that category.
         var categoryPosts = categoryPostOrganizer.GetCategoryPosts(posts);
         var categoryPage = await generateStatic.CategoryPage(categoryPosts.OrderByPublishDate());
         await pageSaver.Save(categoryPage);
