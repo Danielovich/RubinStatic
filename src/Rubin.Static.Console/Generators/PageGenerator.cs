@@ -33,7 +33,7 @@ public class PageGenerator : IGeneratePages
 
     public async Task GenerateCategoryPage(IEnumerable<Post> posts)
     {
-        // generate page that outputs posts within a category.
+        // generate category page and belonging posts within that category.
         var categoryPosts = categoryPostOrganizer.GetCategoryPosts(posts);
         var categoryPage = await generateStatic.CategoryPage(categoryPosts.OrderByPublishDate());
         await pageSaver.Save(categoryPage);
