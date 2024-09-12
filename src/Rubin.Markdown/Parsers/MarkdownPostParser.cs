@@ -45,7 +45,7 @@ public class MarkdownPostParser
 
                 // somewhat a tedious bit of code but it's easy to understand
                 // we start by looking at what type of comment we have on our hands
-                // from there we extract the comment value 
+                // from there we extract the comment value and turn that into a property on a markdown post
                 switch (markdownComment.GetValueBetweenFirstQuoteAndColon())
                 {
                     case "title":
@@ -64,7 +64,10 @@ public class MarkdownPostParser
                         MarkdownPost.Excerpt = markdownComment.AsPostProperty("excerpt").Value;
                         break;
                     case "categories":
-                        markdownComment.ToProperty("categories", ',').Select(n => n.Value).ToList().ForEach(MarkdownPost.Categories.Add);
+                        markdownComment.ToPostProperty("categories", ',')
+                            .Select(n => n.Value)
+                            .ToList()
+                            .ForEach(MarkdownPost.Categories.Add);
                         break;
                     case "isPublished":
                         MarkdownPost.IsPublished = markdownComment.AsPostProperty("isPublished").ParseToBool();

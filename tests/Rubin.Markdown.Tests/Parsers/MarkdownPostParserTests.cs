@@ -129,7 +129,17 @@ public class MarkdownPostParserTests
     [Fact]
     public async Task Parse_Comments_To_Categories_Is_Empty()
     {
-        var comments = $"[//]: # \"categories\"";
+        var comments = $"[//]: # \"categories:    \"";
+        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        await markdownPostParser.ParseCommentsAsPropertiesAsync();
+
+        Assert.True(markdownPostParser.MarkdownPost.Categories.Count() == 0);
+    }
+
+    [Fact]
+    public async Task Parse_Comments_To_Categories_Is_Empty_1()
+    {
+        var comments = $"[//]: # \"categories:\"";
         var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 

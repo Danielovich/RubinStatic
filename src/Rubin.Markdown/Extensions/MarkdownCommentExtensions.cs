@@ -21,7 +21,8 @@ public static class MarkdownCommentExtensions
 
     public static MarkdownProperty AsPostProperty(this MarkdownComment commentAsProperty, string commentProperty)
     {
-        // it exercises on a comment like this [//]: # "title: hugga bugga ulla johnson"
+        // we want to turn a MarkdownComment, e.g. [//]: # "title: hugga bugga ulla johnson"
+        // into a property
         var pattern = $"{commentProperty}:\\s*(.*?)\"";
 
         Match match = Regex.Match(commentAsProperty.Comment, pattern);
@@ -33,13 +34,13 @@ public static class MarkdownCommentExtensions
         return new MarkdownProperty();
     }
 
-    public static IEnumerable<MarkdownProperty> ToProperty(this MarkdownComment commentAsProperty, string commentProperty, char delimeter)
+    public static IEnumerable<MarkdownProperty> ToPostProperty(this MarkdownComment commentAsProperty, string commentProperty, char delimeter)
     {
-        // it exercises on a comment that reflects a list of values,
-        // e.g [//]: # "categories: ugga, bugga, johnny"
-        var pattern = $"{commentProperty}:\\s*(.*?)\"";
+        // we want to turn a MarkdownComment, e.g [//]: # "categories: ugga, bugga, johnny"
+        // into enumerator values
+        var pattern = $"{commentProperty}:\\s*(\\S.*?)\"";
 
-        Match match = Regex.Match(commentAsProperty.Comment, pattern);
+        Match match = Regex.Match(commentAsProperty.Comment, pattern, RegexOptions.IgnorePatternWhitespace);
         if (match.Success)
         {
             var listOfValues = match.Groups[1].Value.Split(delimeter);
