@@ -1,3 +1,4 @@
+using Rubin.Markdown.Extensions;
 using Rubin.Markdown.MarkdownDownload;
 
 namespace Rubin.Markdown.Tests;
@@ -44,8 +45,8 @@ public class OnlineContentServiceTests : IDisposable
     {
         // Arrange
 
-        //otherwise we do not enter actual method we want to test because it filters out non markdown files
-        //yes it is a bit to much detail perhaps
+        //We add a valid file extension path
+        //otherwise we do not enter actual method because it filters out non markdown files
         listOfUris.Add(new Uri("https://some.dk/domain/file.md")); 
 
         await ArrangeResponse(() => NewHttpResponseMessage(HttpStatusCode.Gone));
@@ -72,6 +73,32 @@ public class OnlineContentServiceTests : IDisposable
         var contents = await sut.DownloadAsync(listOfUris);
 
         // Assert
+        this.HttpMessageHandlerMock
+            .Protected()
+            .Verify("SendAsync",
+                Times.Exactly(3),
+                ItExpr.IsAny<HttpRequestMessage>(),
+                ItExpr.IsAny<CancellationToken>());
+
+        Assert.True(contents.Count == 3);
+    }
+
+    [Theory]
+    [MarkdownUriAutoData]
+    public async Task Only_Markdown_Uris_Are_Valid(List<Uri> listOfUris)
+    {
+        //Arrange 
+
+        //add some invalid Uris
+        listOfUris.Add(new Uri("https://some.dk/domain/file"));
+        listOfUris.Add(new Uri("https://some.dk/domain/file.jpg"));
+
+        await ArrangeResponse(() => NewHttpResponseMessage());
+
+        var sut = new DownloadMarkdownFileService(this.HttpClient);
+
+        var contents = await sut.DownloadAsync(listOfUris);
+
         this.HttpMessageHandlerMock
             .Protected()
             .Verify("SendAsync",

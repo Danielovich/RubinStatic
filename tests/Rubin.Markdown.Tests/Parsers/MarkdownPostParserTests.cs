@@ -9,7 +9,7 @@ public class MarkdownPostParserTests
               "[//]: # \"title: hugga bugga ulla johnson\"\n" +
               "[//]: # \"johnny: hugga bugga ulla johnson\"";
 
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.Equal("hugga bugga ulla johnson", markdownPostParser.MarkdownPost.Title);
@@ -27,7 +27,7 @@ public class MarkdownPostParserTests
               "[//]: # \"categories: cars, coding, personal, recipes \"\n" +
               "[//]: # \"isPublished: true \"";
 
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.True(markdownPostParser.MarkdownPost.Title != string.Empty);
@@ -48,7 +48,7 @@ public class MarkdownPostParserTests
               "[//]:#\"slug: hulla bulla\" \n " + 
               "[//]:# \"slug: hulla bulla 2\"";
 
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.NotEmpty(markdownPostParser.MarkdownPost.Title);
@@ -62,7 +62,7 @@ public class MarkdownPostParserTests
               "[//]:   #\"title: hugga bugga ulla johnson\" \n" +
               "[//]:  # \"slug: hulla bulla\" \n";
 
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.Empty(markdownPostParser.MarkdownPost.Title);
@@ -76,7 +76,7 @@ public class MarkdownPostParserTests
               "[//]: # \"pubDate: 20171/13/10 18:59\"\n" +
               "[//]: # \"lastModified: 20217/13/10 23:59\"";
 
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.True(markdownPostParser.MarkdownPost.PubDate == DateTime.MinValue);
@@ -88,7 +88,7 @@ public class MarkdownPostParserTests
     {
         var date = "13/10/2017 18:59";
         var comments = $"[//]: # \"pubDate: {date}\"\n";
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.Equal(new DateTime(2017, 10, 13, 18, 59, 00), markdownPostParser.MarkdownPost.PubDate);
@@ -99,7 +99,7 @@ public class MarkdownPostParserTests
     {
         var date = "01/12/2023 18:59";
         var comments = $"[//]: # \"pubDate: {date}\"\n";
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.Equal(new DateTime(2023, 12, 1, 18, 59, 00), markdownPostParser.MarkdownPost.PubDate);
@@ -110,7 +110,7 @@ public class MarkdownPostParserTests
     {
         var date = "05/29/2023 18:59";
         var comments = $"[//]: # \"pubDate: {date}\"\n";
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.Equal(new DateTime(2023, 5, 29, 18, 59, 00), markdownPostParser.MarkdownPost.PubDate);
@@ -120,7 +120,7 @@ public class MarkdownPostParserTests
     public async Task Parse_Comments_To_Categories()
     {
         var comments = $"[//]: # \"categories: web,code,johnny,cars\"\n";
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.True(markdownPostParser.MarkdownPost.Categories.Count() == 4);
@@ -130,7 +130,7 @@ public class MarkdownPostParserTests
     public async Task Parse_Comments_To_Categories_Is_Empty()
     {
         var comments = $"[//]: # \"categories:    \"";
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.True(markdownPostParser.MarkdownPost.Categories.Count() == 0);
@@ -140,7 +140,7 @@ public class MarkdownPostParserTests
     public async Task Parse_Comments_To_Categories_Is_Empty_1()
     {
         var comments = $"[//]: # \"categories:\"";
-        var markdownPostParser = new MarkdownPostParser(new Models.MardownFile(comments));
+        var markdownPostParser = new MarkdownPostParser(new Models.MarkdownFile(comments));
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.True(markdownPostParser.MarkdownPost.Categories.Count() == 0);

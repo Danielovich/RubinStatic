@@ -29,7 +29,7 @@ public class MarkdownPostParserService : IParseMarkdownFilesToMarkdownPosts
         return await ParseAsync(contents);
     }
 
-    public async Task<List<MarkdownPost>> ParseAsync(List<MardownFile> markdownFiles)
+    public async Task<List<MarkdownPost>> ParseAsync(List<MarkdownFile> markdownFiles)
     {
         var posts = new List<MarkdownPost>();
 

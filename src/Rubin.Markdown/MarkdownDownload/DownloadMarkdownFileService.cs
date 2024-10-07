@@ -1,33 +1,34 @@
-using Rubin.Markdown.Extensions;
 using Rubin.Markdown.Models;
 
 namespace Rubin.Markdown.MarkdownDownload;
 public interface IDownloadMarkdownFile
 {
-    Task<List<MardownFile>> DownloadAsync(IEnumerable<Uri> uris);
+    Task<List<MarkdownFile>> DownloadAsync(IEnumerable<Uri> uris);
 }
 
 public class DownloadMarkdownFileService : IDownloadMarkdownFile
 {
+    private readonly string[] ValidFileExtensions = { ".md", ".markdown" };
+
     private readonly HttpClient httpClient;
 
-    public List<DownloadMarkdownExecption> DownloadExceptions { get; set; } = new();
+    public List<DownloadMarkdownExecption> DownloadExceptions { get; private set; } = new();
 
     public DownloadMarkdownFileService(HttpClient httpClient)
     {
         this.httpClient = httpClient;
     }
 
-    public async Task<List<MardownFile>> DownloadAsync(IEnumerable<Uri> uris)
+    public async Task<List<MarkdownFile>> DownloadAsync(IEnumerable<Uri> uris)
     {
-        var markdownDowloads = new List<MardownFile>();
+        var markdownDowloads = new List<MarkdownFile>();
 
-        foreach (var uri in uris.ByValidFileExtensions(ValidMarkdownFileExtensions.ValidFileExtensions))
+        foreach (var markdownFile in ValidMarkdownUris(uris))
         {
             try
             {
                 markdownDowloads.Add(
-                    await DownloadAsync(uri)
+                    await DownloadAsync(markdownFile)
                 );
             }
             catch (HttpRequestException hre)
@@ -43,17 +44,41 @@ public class DownloadMarkdownFileService : IDownloadMarkdownFile
         return markdownDowloads;
     }
 
-    private async Task<MardownFile> DownloadAsync(Uri uri)
+    private async Task<MarkdownFile> DownloadAsync(MarkdownFile markdownFile)
     {
-        var result = await httpClient.GetAsync(uri);
+        var result = await httpClient.GetAsync(markdownFile.Path);
         if (!result.IsSuccessStatusCode)
         {
-            throw new HttpRequestException($"Could not download file at {uri}", null, result.StatusCode);
+            throw new HttpRequestException($"Could not download file at {markdownFile.Path}", null, result.StatusCode);
         }
 
-        MardownFile markdownFile = new();
         markdownFile.Contents = await result.Content.ReadAsStringAsync();
 
         return markdownFile;
+    }
+
+    private IEnumerable<MarkdownFile> ValidMarkdownUris(IEnumerable<Uri> uris)
+    {
+        foreach (var uri in uris)
+        {
+            if (ValidFileExtensions.Contains(UriPathExtension(uri)))
+            {
+                yield return new MarkdownFile(uri);
+            }
+        }
+    }
+
+    private string UriPathExtension(Uri uri)
+    {
+        if (uri == null) return string.Empty;
+
+        var fileName = Path.GetFileName(uri.AbsoluteUri);
+
+        if (fileName.Contains('.'))
+        {
+            return Path.GetExtension(fileName);
+        }
+
+        return string.Empty;
     }
 }
