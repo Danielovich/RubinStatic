@@ -52,7 +52,7 @@ public class MarkdownPostParserTests
         await markdownPostParser.ParseCommentsAsPropertiesAsync();
 
         Assert.NotEmpty(markdownPostParser.MarkdownPost.Title);
-        Assert.True(markdownPostParser.MarkdownPost.Slug.Equals("hulla bulla"));
+        Assert.Equal("hulla bulla", markdownPostParser.MarkdownPost.Slug);
     }
 
     [Fact]

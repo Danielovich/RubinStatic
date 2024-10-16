@@ -1,14 +1,10 @@
 using Rubin.Markdown.Models;
 
 namespace Rubin.Markdown.MarkdownDownload;
-public interface IDownloadMarkdownFile
-{
-    Task<List<MarkdownFile>> DownloadAsync(IEnumerable<Uri> uris);
-}
 
 public class DownloadMarkdownFileService : IDownloadMarkdownFile
 {
-    private readonly string[] ValidFileExtensions = { ".md", ".markdown" };
+    private readonly string[] ValidFileExtensions = [".md", ".markdown"];
 
     private readonly HttpClient httpClient;
 
@@ -19,7 +15,9 @@ public class DownloadMarkdownFileService : IDownloadMarkdownFile
         this.httpClient = httpClient;
     }
 
-    public async Task<List<MarkdownFile>> DownloadAsync(IEnumerable<Uri> uris)
+    public async Task<List<MarkdownFile>> DownloadAsync(
+        IEnumerable<Uri> uris, 
+        CancellationToken cancellationToken = default)
     {
         var markdownDowloads = new List<MarkdownFile>();
 
@@ -28,7 +26,7 @@ public class DownloadMarkdownFileService : IDownloadMarkdownFile
             try
             {
                 markdownDowloads.Add(
-                    await DownloadAsync(markdownFile)
+                    await DownloadAsync(markdownFile, cancellationToken)
                 );
             }
             catch (HttpRequestException hre)
@@ -44,9 +42,12 @@ public class DownloadMarkdownFileService : IDownloadMarkdownFile
         return markdownDowloads;
     }
 
-    private async Task<MarkdownFile> DownloadAsync(MarkdownFile markdownFile)
+    private async Task<MarkdownFile> DownloadAsync(
+        MarkdownFile markdownFile, 
+        CancellationToken cancellationToken)
     {
-        var result = await httpClient.GetAsync(markdownFile.Path);
+        var result = await httpClient.GetAsync(markdownFile.Path, cancellationToken);
+        
         if (!result.IsSuccessStatusCode)
         {
             throw new HttpRequestException($"Could not download file at {markdownFile.Path}", null, result.StatusCode);
