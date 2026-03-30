@@ -4,6 +4,6 @@ namespace Rubin.Markdown.GithubClient
     public class GetRepositoryContentApiResponse
     {
         [System.Text.Json.Serialization.JsonPropertyName("download_url")]
-        public string DownloadUrl { get; set; } = default!;
+        public string DownloadUrl { get; set; } = string.Empty;
     }
 }

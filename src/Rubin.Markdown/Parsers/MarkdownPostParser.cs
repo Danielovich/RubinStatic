@@ -12,7 +12,7 @@ public class MarkdownPostParser
     public MarkdownPost MarkdownPost { get; private set; }
 
 
-    public MarkdownPostParser(MardownFile markdownFile)
+    public MarkdownPostParser(MarkdownFile markdownFile)
     {
         ArgumentNullException.ThrowIfNull(markdownFile.Contents);
 

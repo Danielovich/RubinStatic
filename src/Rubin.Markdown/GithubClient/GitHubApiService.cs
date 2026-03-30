@@ -20,9 +20,9 @@ public class GitHubApiService : IGithubRepositoryContentsService
         this.httpClient.DefaultRequestHeaders.Add("User-Agent", Constants.Config.GithubClientUserAgent);
     }
 
-    public async Task LoadContentsAsync()
+    public async Task LoadContentsAsync(CancellationToken cancellationToken = default)
     {
-        var response = await httpClient.GetAsync(configuration[Constants.Config.MarkdownContentsUrl]);
+        var response = await httpClient.GetAsync(configuration[Constants.Config.MarkdownContentsUrl], cancellationToken);
         var json = await response.Content.ReadAsStringAsync();
 
         var apiResponse = JsonSerializer.Deserialize<List<GetRepositoryContentApiResponse>>(json) 

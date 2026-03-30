@@ -4,7 +4,7 @@ namespace Rubin.Markdown.Tests;
 
 public class MarkdownFileFixture
 {
-    public MardownFile MarkdownFile { get; private set; } = new MardownFile();
+    public MarkdownFile MarkdownFile { get; private set; } = new MarkdownFile();
 
     public MarkdownFileFixture()
     {

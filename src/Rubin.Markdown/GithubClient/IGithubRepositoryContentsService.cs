@@ -4,5 +4,5 @@ public interface IGithubRepositoryContentsService
 {
     IReadOnlyList<GetRepositoryContentApiResponse> RepositoryContents { get; }
 
-    Task LoadContentsAsync();
+    Task LoadContentsAsync(CancellationToken cancellationToken = default);
 }

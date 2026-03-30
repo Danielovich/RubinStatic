@@ -4,5 +4,5 @@ using Rubin.Markdown.Models;
 public interface IParseMarkdownFilesToMarkdownPosts
 {
     Task<List<MarkdownPost>> ParseAsync();
-    Task<List<MarkdownPost>> ParseAsync(List<MardownFile> markdownFiles);
+    Task<List<MarkdownPost>> ParseAsync(List<MarkdownFile> markdownFiles);
 }

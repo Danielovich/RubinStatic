@@ -4,12 +4,12 @@ namespace Rubin.Markdown.Tests;
 
 public static class MarkdownFileTestHelper
 {
-    public static List<MardownFile> MarkdownFileCollection()
+    public static List<MarkdownFile> MarkdownFileCollection()
     {
         var markdownFile = Path.Combine(Environment.CurrentDirectory, "Assets", "post.md");
 
-        List<MardownFile> markdownFiles = new();
-        markdownFiles.Add(new MardownFile() { Contents = File.ReadAllText(markdownFile) });
+        List<MarkdownFile> markdownFiles = new();
+        markdownFiles.Add(new MarkdownFile() { Contents = File.ReadAllText(markdownFile) });
 
         return markdownFiles;
     }
